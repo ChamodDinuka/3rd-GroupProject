@@ -1,0 +1,75 @@
+.top-nav-bar
+{
+    height:57px;
+    top:0;
+    position:sticky;
+    background:#fff;
+    margin-bottom:20px;
+  
+    z-index:2;
+}
+.search-box
+{
+    display:inline-flex;
+    width:40%;
+    
+}
+.menu-bar
+{
+    width:40%;
+    height:57px;
+    float:right;
+    
+
+}
+.menu-bar ul
+{
+    display:inline-flex;
+    float:right;
+   
+}
+
+.menu-bar ul li
+{
+    border-left:1px solid #FFFFFF;
+    list-style-type:none;
+    padding:15px 35px;
+    text-align:center;
+    background-color :orange;
+    cursor:pointer;
+    margin-right:20px;
+}
+.menu-bar ul li a
+{
+    font-size:16px;
+    font-weight:bold;
+    color:#fff;
+    text-decoration:none;
+
+}
+@media only screen and (max-width:980px)/*make nav bar responsive to all screens*/
+{
+    .top-nav-bar
+    {
+        height: 118px;
+        border-bottom: 0;
+    }
+    .search-box
+    {
+        width:100%;
+    }
+    .menu-bar
+    {
+        width:100%;
+    }
+    .menu-bar ul
+    {
+        margin:10px 0;
+        width:100%;
+    }
+    .menu-bar ul li 
+    {
+        height:57px;
+        width:100%;
+    }
+}
