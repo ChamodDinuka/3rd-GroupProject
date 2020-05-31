@@ -1,0 +1,33 @@
+.body{
+    padding: 0px;
+}
+.dashboard {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100px;
+    margin-top: -100vh;
+    color: black;
+  }
+.navbar {
+    position: sticky;
+    top: 0;
+    margin-bottom: 5px;
+}
+.nav {
+   
+    display: inline-block;
+}
+hr {
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+    width: 80px;
+    background-color: white;
+}
+div.dashboard {
+    margin-right: 1px;
+    margin-left: 114px;
+}

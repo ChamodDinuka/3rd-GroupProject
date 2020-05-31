@@ -8,8 +8,8 @@ import ContactUs from './containers/ContactUs';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './containers/Home';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-
+import {BrowserRouter , Router, Switch, Route} from 'react-router-dom';
+import Dashboard from './component/admin/dashboard/dashboard';
 
 
 
@@ -18,24 +18,26 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
+      <Switch>
+        <Route exact path="/admin" component ={Dashboard}/>
         <Navbar/>
+      </Switch>
         <Route path="/" exact component ={Home}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>
         
         <Route path="/aboutUs" component ={AboutUs}/>
         <Route path="/contactus" component ={ContactUs}/>
+        <Switch>
+        <Route exact path="/admin" />
         <Footer/>
-        
-        
-
-        
-        
+      </Switch>
         
       </div>
-    </Router>
+    
+    </BrowserRouter>
     
   );
 }
