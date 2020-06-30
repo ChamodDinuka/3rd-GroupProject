@@ -4,6 +4,8 @@ import './App.css';
 import AboutUs from './containers/AboutUs';
 import Login from './containers/Login';
 import Register from './containers/Register';
+import TourGuideRegister from './containers/TourGuideRegister';
+import TouristRegister from './containers/TouristRegister';
 import ContactUs from './containers/ContactUs';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -27,7 +29,8 @@ function App() {
         <Route path="/" exact component ={Home}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>
-        
+        <Route path="/tourguideregister" component ={TourGuideRegister}/>
+        <Route path="/touristregister" component ={TouristRegister}/>
         <Route path="/aboutUs" component ={AboutUs}/>
         <Route path="/contactus" component ={ContactUs}/>
         <Switch>

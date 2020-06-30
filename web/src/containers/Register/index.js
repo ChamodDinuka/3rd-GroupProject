@@ -1,16 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css'
 
-/**
-* @author
-* @function Register
-**/
 
-const Register = (props) => {
-  return(
-	<div>Register</div>
-   )
+class Register extends Component {
+	constructor(props) {
+		super(props);
 
- }
+    this.update = this.update.bind(this);
 
-export default Register
+		this.displayLogin = this.displayLogin.bind(this);
+	}
+
+	update(e) {
+		let name = e.target.name;
+		let value = e.target.value;
+		this.setState({
+			[name]: value
+		});
+	}
+
+	displayLogin(e) {
+		e.preventDefault();
+		console.log(this.state);
+	
+	}
+
+	render() {
+		return (
+			<div className="register">
+				<form onSubmit={this.displayLogin}>
+
+				
+				
+				<ul>
+					  <Link to="/tourguideregister" ><button  type="button" onClick={this.props.handleClick}>{this.props.label}Register As Tour Guide</button></Link>
+                </ul>
+
+				<ul>
+				    <Link to="/touristregister" ><button  type="button" onClick={this.props.handleClick}>{this.props.label}Register As Tourist</button></Link>
+				</ul>
+
+				</form>
+				
+			</div>
+		);
+	}
+}
+
+export default Register;

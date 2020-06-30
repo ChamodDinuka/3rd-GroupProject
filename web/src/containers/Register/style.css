@@ -1,1 +1,29 @@
+.register {
+    align-items: center;
+    justify-content: center;
+    padding: 30px 500px;
+  }
+ 
+.register button[type='button'] {
+    padding: 10px 20px;
+    background-color: orange;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    width: 100%;
+  }
+  
+.register button[type='button']:focus{
+    outline: none;      
+    box-shadow: 0 0 0 2px orange;
+  }
+  
+  
+  
+ 
+  
+  
+  
 
