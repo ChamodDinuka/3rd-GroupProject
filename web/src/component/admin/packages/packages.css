@@ -1,0 +1,29 @@
+.packages {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+   
+   
+    margin-left: 100px;
+    margin-top: -100vh;
+    color: black;
+  }
+  div.packages {
+    margin-right: 1px;
+    margin-left: 114px;
+}
+.card {
+    position: inherit;
+}
+.btn-success {
+  width: 150px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}

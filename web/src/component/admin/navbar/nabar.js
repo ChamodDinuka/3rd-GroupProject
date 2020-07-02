@@ -7,14 +7,14 @@ class nabar extends Component{
         return(
             
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Squiral</Navbar.Brand>
+            <Navbar.Brand href="#home">iter</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 
               </Nav>
               <Nav>
-                <Nav.Link href="#deets">Notification</Nav.Link>
+                <Nav.Link href="#deets"><i className="fa fa-bell-o" aria-hidden="true" ></i></Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
                   Logout
                 </Nav.Link>

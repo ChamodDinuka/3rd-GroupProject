@@ -1,4 +1,32 @@
-.flex-column{
-    width: 20px;
-}
 
+ul {
+    list-style: none;
+    padding-left: 0;
+    
+}
+.admin-side {
+    width: 110px;
+    background: #343a40;
+    height: 100vh;
+ 
+    position: inherit;
+    
+}
+li#side {
+    padding: 5px;
+    margin: 5px;
+}
+a {
+    text-decoration: none !important;
+    color: white;
+}
+a:hover{
+    border: white;
+}
+li#side:hover {
+    border: inset;
+}
+ul {
+    position: sticky;
+    top: 61px;
+}

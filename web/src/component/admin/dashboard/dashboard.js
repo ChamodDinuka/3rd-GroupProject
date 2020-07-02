@@ -1,18 +1,14 @@
 import React,{Component} from 'react';
-import Nabar from '../navbar/nabar'
-import Sidebar from '../sidebar/sidebar'
 import './dashboard.css';
+import  firebase from '../../../firebase'
 
 class Dashboard extends Component{
-    render(){
+   render(){ 
         return(
-            <><Nabar sticky="top"/>
-            <><Sidebar /></>
             <div className="dashboard">
                 Dashboard
-  
             </div>
-            </>
+           
             
         );
         }

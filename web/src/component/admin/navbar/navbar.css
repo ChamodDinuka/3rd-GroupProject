@@ -5,3 +5,9 @@
     height: 100vh;
   
 }
+i.fa.fa-bell-o {
+    color: rgba(255,255,255,.5);
+}
+i.fa.fa-bell-o:hover{
+    color:white;
+}
