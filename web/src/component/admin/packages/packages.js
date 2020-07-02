@@ -4,11 +4,13 @@ import {Card,Button,Modal,Nav, CardGroup,CardDeck,Row,Col} from 'react-bootstrap
 import Add_package from './add-package/add-package'
 import firebase from '../../../firebase'
 import { database } from 'firebase'
+import View_package from './view-package/view-package'
 
 class Packages extends Component{
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
 		this.state={
+			number:'',
 			package_name:[],
 			package_description:[],
             vehicle_type:[],
@@ -56,6 +58,15 @@ class Packages extends Component{
 		 this.setState({show:false});
 		 console.log("hii");
 	  }
+	  handleView(i){
+		  this.setState({
+			  view:true,
+			  number:i
+		  });
+	  }
+	  closeView(){
+		  this.setState({view:false});
+	  }
 	
     render(){
 		
@@ -70,11 +81,11 @@ class Packages extends Component{
 			<Card >
 				
 				<Card.Body>
-		<Card.Title>{this.state.package_name[i]}</Card.Title>
+					<Card.Title>{this.state.package_name[i]}</Card.Title>
 					<Card.Text>
 						{this.state.package_description[i]}
     				</Card.Text>
-					<Button variant="primary">View</Button>{' '}
+					<Button variant="primary" onClick={()=>{this.handleView(i)}}>View</Button>{' '}
 					<Button variant="warning">Update</Button>
 				</Card.Body>
 			</Card> </Col>             
@@ -88,7 +99,17 @@ class Packages extends Component{
                 <Modal.Header closeButton onClick={()=>{this.closeModel()} }><b>Add Package</b></Modal.Header>
                    <Add_package/>
 
-                </Modal>
+            </Modal>
+
+			<Modal show={this.state.view} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal.Header closeButton onClick={()=>{this.closeView()} }><b>View Package</b></Modal.Header>
+				<View_package value={this.state} number={this.state.number}/>
+				<Modal.Footer>
+        <Button onClick={()=>{this.closeView()}}>Close</Button>
+      </Modal.Footer>
+
+            </Modal>
+				
 				</>
 				
             
