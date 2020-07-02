@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
@@ -63,7 +62,7 @@ class Login extends Component {
 						/>
 					</div>
 
-					<input type="submit" value="Login" />
+					<input type="submit" value="Log In" />
 		
 				</form>
 
