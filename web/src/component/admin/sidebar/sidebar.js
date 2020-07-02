@@ -1,16 +1,19 @@
 import React,{Component  } from "react";
 import { Nav } from 'react-bootstrap';
+import './sidebar.css'
 
 class Sidebar extends Component{
     render(){
         return(
        
-            <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link style={{position:"sticky",top:"56px"}} href="/home">Add place</Nav.Link><hr style={{position:"sticky",top:"96px"}}/>
-            <Nav.Link style={{position:"sticky",top:"120px"}} eventKey="link-1">Packages</Nav.Link><hr style={{position:"sticky",top:"160px"}}/>
-            <Nav.Link style={{position:"sticky",top:"160px"}} eventKey="link-2">Complaints</Nav.Link><hr style={{position:"sticky",top:"200px"}}/>
-           
-            </Nav>
+            <div className="admin-side">
+                <ul>
+                    <li id="side"><a href="#">Dashboard</a></li>
+                    <li id="side"><a href="#">Add Place</a></li>
+                    <li id="side"><a  href="/admin/packages">Packages</a></li>
+                </ul>
+            </div>
+            
         
         )
     }
