@@ -41,7 +41,7 @@ const Footer = (props) => {
                     </div>
                 </div>
                 <hr></hr>
-                <p class="copyright">Made with by <i class="fa fa-heart-o"></i> CH2KN</p>
+                <p class="copyright">Made with by <i class="fa fa-heart-o"></i> Team iter</p>
             </div>
         </section> 
     </div>
