@@ -57,7 +57,7 @@ class Login extends Component {
 					<div className="email">
 						<input
 							type="text"
-							placeholder="Email address"
+							placeholder="Email Address"
 							value={this.state.email}
 							onChange={this.update}
 							name="email"
