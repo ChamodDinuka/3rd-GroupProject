@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
+import firebase from 'firebase';
+import fire from '../../firebase';
+
 
   
 
@@ -18,7 +21,7 @@ class Login extends Component {
 		this.displayLogin = this.displayLogin.bind(this);
 	}
 
-	update(e) {
+    update(e) {
 		let name = e.target.name;
 		let value = e.target.value;
 		this.setState({
@@ -26,6 +29,15 @@ class Login extends Component {
 		});
 	}
 
+	login(e) {
+		e.preventDefault();
+		fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
+
+		}).catch((error) => {
+			console.log(error);
+		});
+		}
+	
 	displayLogin(e) {
 		e.preventDefault();
 		console.log('You are logged in');
@@ -42,10 +54,10 @@ class Login extends Component {
 				<form onSubmit={this.displayLogin}>
 					<h2>Login</h2>
                     
-					<div className="username">
+					<div className="email">
 						<input
 							type="text"
-							placeholder="Username"
+							placeholder="Email address"
 							value={this.state.email}
 							onChange={this.update}
 							name="email"
@@ -62,7 +74,7 @@ class Login extends Component {
 						/>
 					</div>
 
-					<input type="submit" value="Log In" />
+					<input type="submit" value="Login" onClick={this.login} />
 		
 				</form>
 

@@ -62,6 +62,11 @@
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }
+
+.login :link{
+  padding: 10px 10px;
+  width: 100%;
+}
   
 .check {
     font-size: 16px;

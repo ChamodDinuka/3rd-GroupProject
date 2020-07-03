@@ -1,7 +1,7 @@
 .register {
     align-items: center;
     justify-content: center;
-    padding: 30px 500px;
+    padding: 20px 500px;
   }
  
 .register button[type='button'] {
