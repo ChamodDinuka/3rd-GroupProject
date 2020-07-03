@@ -11,6 +11,7 @@ const Navbar = (props) => {
   return(
     <div>
         <div className="top-nav-bar">
+        <NavLink to ="/"><img class="logo" src="/images/logo.png"/></NavLink>
                 <div className="search-box">
                     <input type="text" class="form-control"/>
                     <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
