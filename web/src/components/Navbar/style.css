@@ -11,7 +11,8 @@
 .search-box
 {
     display:inline-flex;
-    width:40%;
+    width:30%;
+    margin-left:200px; 
     
 }
 .menu-bar
@@ -21,6 +22,15 @@
     float:right;
     
 
+}
+.logo
+{
+    float:left; 
+    display: inline-block;
+    width: 200px;
+    border-left:20px solid #FFFFFF ;
+    cursor:pointer;
+    position:absolute;
 }
 .menu-bar ul
 {
