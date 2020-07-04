@@ -1,0 +1,31 @@
+.B-box{
+    width:90%;
+    padding:20px;
+    margin:100px auto;
+    display:flex;
+    justify-content:center;
+   
+  }
+  .box{
+    width:250px;
+    height:300px;
+    background: orange;
+    float:left;
+    margin:0px 10px;
+    transition:1s;
+  }
+  .box:hover{
+    transform:scale(1.3);
+    background: #ff800a;
+    box-shadow: 2px 2px 2px #000;
+  }
+  .package img{
+    width:95%;
+    height:250px;
+  }
+  .package1 img{
+    width:90%;
+    height:215px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }

@@ -41,7 +41,7 @@
     box-shadow: 0 0 0 2px orange;
   }
   
-.touristregister input[type='submit'] {
+.touristregister button[type='submit'] {
     padding: 15px 0px;
     background-color: orange;
     color: #fff;
@@ -79,7 +79,7 @@
     box-shadow: 0 0 0 2px orange;
   }
   
-.touristregister input[type='submit']:focus{
+.touristregister button[type='submit']:focus{
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }
