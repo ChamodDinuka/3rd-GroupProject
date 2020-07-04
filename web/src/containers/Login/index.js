@@ -45,7 +45,7 @@ class Login extends Component {
 					<div className="username">
 						<input
 							type="text"
-							placeholder="Username"
+							placeholder="Email Address"
 							value={this.state.email}
 							onChange={this.update}
 							name="email"
@@ -61,12 +61,11 @@ class Login extends Component {
 							name="password"
 						/>
 					</div>
-
-					<input type="submit" value="Log In" />
+					<Link to="/tourist" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Login</button></Link>
+					
 		
 				</form>
-
-				<Link to="/register" style={{ color: 'orange' }}>Don't have an account? Sign up</Link>
+				<Link to="/register" style={{ color: 'orange', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
 			</div>
 		);
 	}

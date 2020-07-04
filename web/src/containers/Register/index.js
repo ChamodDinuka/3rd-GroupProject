@@ -34,11 +34,11 @@ class Register extends Component {
 				
 				
 				<ul>
-					  <Link to="/tourguideregister" ><button  type="button" onClick={this.props.handleClick}>{this.props.label}Register As Tour Guide</button></Link>
+					  <Link to="/tourguideregister" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register As Tour Guide</button></Link>
 				</ul>
 
 				<ul>
-				    <Link to="/SubscriptionPlan" ><button  type="button" onClick={this.props.handleClick}>{this.props.label}Register As Tourist</button></Link>
+				    <Link to="/SubscriptionPlan" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register As Tourist</button></Link>
 				</ul>
 
 				</form>

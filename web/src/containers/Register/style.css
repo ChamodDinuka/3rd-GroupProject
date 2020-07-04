@@ -4,7 +4,7 @@
     padding: 30px 500px;
   }
  
-.register button[type='button'] {
+.register button[type='submit'] {
     padding: 10px 20px;
     background-color: orange;
     color: #fff;
@@ -15,7 +15,7 @@
     width: 100%;
   }
   
-.register button[type='button']:focus{
+.register button[type='submit']:focus{
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }
