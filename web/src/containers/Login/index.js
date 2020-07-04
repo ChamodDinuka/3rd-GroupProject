@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style.css'
-import firebase from 'firebase';
-import fire from '../../firebase';
-
 
   
 
@@ -21,7 +18,7 @@ class Login extends Component {
 		this.displayLogin = this.displayLogin.bind(this);
 	}
 
-    update(e) {
+	update(e) {
 		let name = e.target.name;
 		let value = e.target.value;
 		this.setState({
@@ -29,15 +26,6 @@ class Login extends Component {
 		});
 	}
 
-	login(e) {
-		e.preventDefault();
-		fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
-
-		}).catch((error) => {
-			console.log(error);
-		});
-		}
-	
 	displayLogin(e) {
 		e.preventDefault();
 		console.log('You are logged in');
@@ -74,11 +62,11 @@ class Login extends Component {
 						/>
 					</div>
 
-					<input type="submit" value="Login" onClick={this.login} />
+					<Link to="/tourist" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Login</button></Link>
 		
 				</form>
 
-				<Link to="/register" style={{ color: 'orange' }}>Don't have an account? Sign up</Link>
+				<Link to="/register" style={{ color: 'orange', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
 			</div>
 		);
 	}

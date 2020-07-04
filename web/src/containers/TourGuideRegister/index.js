@@ -7,8 +7,7 @@ class TourGuideRegister extends Component {
 		super(props);
 
 		this.state = {
-			firstname: '',
-			lastname: '',
+			fullname: '',
             email: '',
             phone: '',
 			password: ''
@@ -93,10 +92,10 @@ class TourGuideRegister extends Component {
                         />
 					</div>
 
-					<input type="submit" value="Register" />
+					<Link to="/tourguide" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register</button></Link>
 				</form>
            
-				<Link to="/login" style={{ color: 'orange' }}>Already have an account? Sign in</Link>
+				<Link to="/login" style={{ color: 'orange', padding: '10px 10px' }}>Already have an account? Sign in</Link>
 
             </div>
 		);
