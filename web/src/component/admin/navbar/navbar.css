@@ -18,3 +18,19 @@ a#ico {
 .navbar-dark .navbar-nav .nav-link {
     color: white;
 }
+
+button#dropdown-basic {
+    background: #343a40!important;
+}
+.dropdown-toggle::after {
+    display: contents;
+}
+a.dropdown-item {
+   
+    padding-left: 5px;
+}
+a.dropdown-item:hover {
+    padding-left: 0px;
+    background: chocolate;
+    color: white;
+}
