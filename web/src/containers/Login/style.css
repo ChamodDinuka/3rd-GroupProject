@@ -47,7 +47,7 @@
     box-shadow: 0 0 0 2px orange;
   }
   
-.login input[type='submit'] {
+.login button[type='submit'] {
     padding: 10px 20px;
     background-color: orange;
     color: #fff;
@@ -58,7 +58,7 @@
     width: 100%;
   }
   
-.login input[type='submit']:focus{
+.login button[type='submit']:focus{
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }

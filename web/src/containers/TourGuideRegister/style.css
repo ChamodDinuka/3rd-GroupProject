@@ -42,7 +42,7 @@
     box-shadow: 0 0 0 2px orange;
   }
   
-.tourguideregister input[type='submit'] {
+.tourguideregister button[type='submit'] {
     padding: 10px 20px;
     background-color: orange;
     color: #fff;
@@ -53,7 +53,7 @@
     width: 100%;
   }
   
-.tourguideregister input[type='submit']:focus{
+.tourguideregister button[type='submit']:focus{
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }
