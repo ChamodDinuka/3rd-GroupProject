@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css'
+import { Link } from 'react-router-dom';
 
 /**
 * @author
@@ -12,17 +13,17 @@ const Subplans = (props) => {
         <div class="B-box">
             <div class="box">
                 <div class="package">
-                    <img src="/images/bronze4.png"></img>
+                <Link to="/BronzePlan" ><img src="/images/bronze4.png"></img></Link>
                 </div>
             </div> 
             <div class="box">
                 <div class="package1">
-                    <img src="/images/gold.png"></img>
+                <Link to="/GoldPlan" ><img src="/images/gold.png"></img></Link>
                 </div>
             </div> 
             <div class="box">
                 <div class="package1">
-                    <img src="/images/silver.png"></img>
+                <Link to="/SilverPlan" ><img src="/images/silver.png"></img></Link>
                 </div>
             </div>    
         </div>   

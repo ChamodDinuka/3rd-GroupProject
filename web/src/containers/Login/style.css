@@ -43,26 +43,26 @@
 }
 
 .login input[type='password']:focus{
-  outline: none;      
-  box-shadow: 0 0 0 2px orange;
-}
-
+    outline: none;      
+    box-shadow: 0 0 0 2px orange;
+  }
+  
 .login button[type='submit'] {
-  padding: 10px 20px;
-  background-color: orange;
-  color: #fff;
-  font-size: 25px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border: none;
-  width: 100%;
-}
-
+    padding: 10px 20px;
+    background-color: orange;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: none;
+    width: 100%;
+  }
+  
 .login button[type='submit']:focus{
-  outline: none;      
-  box-shadow: 0 0 0 2px orange;
-}
-
+    outline: none;      
+    box-shadow: 0 0 0 2px orange;
+  }
+  
 .check {
   font-size: 16px;
 }

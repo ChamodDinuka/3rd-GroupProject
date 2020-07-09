@@ -7,7 +7,6 @@ import TourGuideRegister from './containers/TourGuideRegister';
 import TouristRegister from './containers/TouristRegister';
 import ContactUs from './containers/ContactUs';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Home from './containers/Home';
 import {BrowserRouter , Router, Switch, Route} from 'react-router-dom';
 import Dashboard from './component/admin/dashboard/dashboard';
@@ -17,6 +16,10 @@ import Packages from './component/admin/packages/packages';
 import firebase from 'firebase';
 import fire from './firebase';
 
+import SubscriptionPlan from './containers/SubscriptionPlan';
+import BronzePlan from './containers/BronzePlan';
+import GoldPlan from './containers/GoldPlan';
+import SilverPlan from './containers/SilverPlan';
 
 
 
@@ -50,9 +53,13 @@ function App() {
         <Route path="/touristregister" component ={TouristRegister}/>
         <Route path="/aboutUs" component ={AboutUs}/>
         <Route path="/contactus" component ={ContactUs}/>
+        <Route path="/SubscriptionPlan" component ={SubscriptionPlan}/>
+        <Route path="/BronzePlan" component ={BronzePlan}/>
+        <Route path="/GoldPlan" component ={GoldPlan}/>
+        <Route path="/SilverPlan" component ={SilverPlan}/>
         <Switch>
         <Route exact path="/admin" />
-        <Footer/>
+        
       </Switch>
         
       </div>

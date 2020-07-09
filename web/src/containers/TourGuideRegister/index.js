@@ -91,12 +91,11 @@ class TourGuideRegister extends Component {
                             name="password1"
                         />
 					</div>
-
 					<Link to="/tourguide" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register</button></Link>
+					
 				</form>
-           
 				<Link to="/login" style={{ color: 'orange', padding: '10px 10px' }}>Already have an account? Sign in</Link>
-
+				
             </div>
 		);
 	}
