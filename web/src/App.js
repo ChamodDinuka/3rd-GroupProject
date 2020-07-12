@@ -13,6 +13,8 @@ import Dashboard from './component/admin/dashboard/dashboard';
 import Sidebar from './component/admin/sidebar/sidebar'
 import Navbar2 from './component/admin/navbar/nabar'
 import Packages from './component/admin/packages/packages';
+import Report from './component/user/report/report'
+import Reprot from './component/user/report/report';
 import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
@@ -28,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+      <Route path="/report" exact component={Reprot}/>
       <Switch>
         
         <Route path="/admin"

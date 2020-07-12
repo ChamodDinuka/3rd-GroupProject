@@ -29,10 +29,10 @@ class Register extends Component {
 	render() {
 		return (
 			<div className="register">
-				<form onSubmit={this.displayLogin}>
+				<form onSubmit={this.displayLogin} >
 
 				
-				
+				<img src="https://www.pngitem.com/pimgs/m/464-4646400_transparent-tourists-clipart-tourist-png-png-download.png"/>
 				<ul>
 					  <Link to="/tourguideregister" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register As Tour Guide</button></Link>
 				</ul>

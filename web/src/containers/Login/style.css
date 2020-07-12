@@ -1,7 +1,10 @@
 .login {
     align-items: center;
     justify-content: center;
-    padding: 20px 500px;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
   }
   
 .login h2 {

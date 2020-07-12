@@ -27,3 +27,6 @@
   margin-right: 0px;
   margin-left: 0px;
 }
+.col-md-3.col-sm-4 {
+  position: inherit;
+}
