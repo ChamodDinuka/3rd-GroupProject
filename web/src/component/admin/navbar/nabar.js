@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
-import { Navbar,Nav,Dropdown } from 'react-bootstrap';
+import { Navbar,Nav,Dropdown,Modal } from 'react-bootstrap';
 import './navbar.css';
 import firebase from '../../../firebase'
 
 class nabar extends Component{
   state={
+    show:false,
     view:0,
     list:'false',
     user_reports:[]
@@ -41,9 +42,17 @@ class nabar extends Component{
     }.bind(this));
    
     }
+    handleShow = () =>{
+        this.setState({
+            show:true
+        });
+    }
+    closeView(){
+		  this.setState({show:false});
+	  }
     render(){
         return(
-            
+            <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand href="#home">iter</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -60,7 +69,7 @@ class nabar extends Component{
   <Dropdown.Menu>
   {this.state.user_reports.map((answer, i) => {
     return(
-     <Dropdown.Item href="#/action-1">Reported {this.state.user_reports[i]}</Dropdown.Item>
+     <Dropdown.Item  onClick={this.handleShow}>Reported {this.state.user_reports[i]}</Dropdown.Item>
     )
    })}
         
@@ -73,7 +82,20 @@ class nabar extends Component{
               </Nav>
             </Navbar.Collapse>
           </Navbar>
-          
+          <Modal show={this.state.show} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+                <Modal.Header closeButton onClick={()=>{this.closeView()} }><b>View Report</b></Modal.Header>
+                <div className="view">
+                <b>Reporter:{' '}<h6>Mark Wood</h6></b>
+                <b>Guide Name:{' '}<h6>Rashen Silva</h6></b>
+                <b>Report Category<h6>Cheating</h6></b>
+                <b>Report Description:<h6>He didn't come as he promised</h6></b>
+                </div>
+				
+
+            </Modal>
+
+          </>
+        
         );
     }
     

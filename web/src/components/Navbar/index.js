@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import './style.css'
-
+import {Button} from 'react-bootstrap'
 /**
 * @author
 * @function 
@@ -18,8 +18,9 @@ const Navbar = (props) => {
                 </div>
                 <div class="menu-bar">
                     <ul>
-                        <li><NavLink to="/register">Sign Up</NavLink></li>
-                        <li><NavLink to="/login">Login</NavLink></li>
+                     <Button variant="warning" href="/register">Sign Up</Button>{' '}
+                     <Button variant="warning" href="/login">Login</Button>{' '}
+                        
                     </ul>
                 </div>
         </div>

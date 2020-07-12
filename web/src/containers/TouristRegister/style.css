@@ -1,7 +1,12 @@
 .touristregister {
     align-items: center;
     justify-content: center;
-    padding: 20px 500px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+  
   }
 
 .touristregister h2 {
