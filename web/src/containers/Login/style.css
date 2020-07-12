@@ -1,9 +1,9 @@
 .login {
-  align-items: center;
-  justify-content: center;
-  padding: 20px 500px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 500px;
 }
-
+  
 .login h2 {
   font-size: 30px;
   text-transform: uppercase;

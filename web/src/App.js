@@ -16,6 +16,8 @@ import Packages from './component/admin/packages/packages';
 import firebase from 'firebase';
 import fire from './firebase';
 
+import Report from './component/user/report/report'
+import Reprot from './component/user/report/report';
 import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
@@ -31,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+      <Route path="/report" exact component={Reprot}/>
       <Switch>
         
         <Route path="/admin"
