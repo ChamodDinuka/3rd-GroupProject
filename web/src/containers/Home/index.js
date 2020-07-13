@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import'./style.css';
-import Carousel from '../../components/Carousel';
-import CityGuid from '../../components/CityGuide';
-import FoodDrink from '../../components/FoodDrink';
+
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Details from '../../components/Details';
+import Appdownload from '../../components/Appdownload';
+
 
 
 
 const Home = props=>{
     return(
     <div>
-        <Carousel/>
-        <CityGuid/>
-        <FoodDrink/>
-        <Footer/>
+        
+        <main>
+            <Header/>
+            <Details/>
+            <Appdownload/>
+            <Footer/>
+        </main>
+
+
+
+
+        
+        
+       
     </div>
 );
 }
-
 export default Home;

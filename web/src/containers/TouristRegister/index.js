@@ -89,7 +89,7 @@ class TouristRegister extends Component {
             				<option value="bronze">Bronze</option>
           				</select>
         			</label>
-					<Link to="/tourist" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register</button></Link>
+					<Link to="/login" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register</button></Link>
                     
 				</form>
 

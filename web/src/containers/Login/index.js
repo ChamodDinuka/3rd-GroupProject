@@ -61,7 +61,7 @@ class Login extends Component {
 							name="password"
 						/>
 					</div>
-					<Link to="/tourist" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Login</button></Link>
+					<Link to="/GuideSelection" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Login</button></Link>
 					
 		
 				</form>

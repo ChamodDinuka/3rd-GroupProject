@@ -1,0 +1,107 @@
+
+/*section 1*/
+
+.cover{
+    width:100%;
+    height:50vmin;
+    background:url("/images/section1.png");
+    background-position: -24rem -19rem;
+    background-size: 95%;
+    position:relative;
+    
+  
+    
+}
+
+.advantages .rect{
+    position:relative;
+    z-index:1;
+    background:white;
+    width:18rem;
+    height:21rem;
+    padding-top:3.5vmin;
+    margin:1rem;
+    border-radius:5em;
+    box-shadow:1px 2px 50px 0px rgba(255,0,0,0.349);
+
+}
+
+.advantages{
+    margin-top:-3vmin;
+    margin-right: 4px;
+    
+}
+
+
+.advantages .rect h5{
+    font-size:2rem;
+    color:tomato;
+}
+
+.advantages .rect p{
+    font-family:Rubik;
+    width:150px;
+    margin-left: 65px;
+    font-weight:bold;
+   
+}
+
+
+.Forwhom {
+    padding-top:15vmin;
+    padding-bottom:0.1em;
+    font-family:Lobster;
+}
+.Forwhom h1{
+    padding-top:15vmin;
+}
+.Forwhom > h1 {
+    padding-top: 15vmin;
+    padding-bottom: 0.1em;
+    font-family: var(--Lobster);
+  }
+.Forwhom .cards .card{
+    width:22rem;
+    margin:3vmin;
+   
+}
+
+.cards .div{
+    padding:0;
+    margin:0;
+}
+
+.cards .title{
+    background:rgba(208,241,241,0.199);
+    padding:1.4rem 2.5rem;
+    font-size:2vmin;
+    
+   
+}
+
+.card .card-text{
+    padding:1rem 3rem;
+    color:lightblack;
+    font-weight: bold;
+}
+.card .card-body{
+    background: rgb(208, 241, 241,0.199);
+    border-bottom-right-radius:200px;
+    border-bottom-left-radius: 200px;
+}
+.card .body .h1{
+    font-size:12vmin;
+    padding:1em 0.5em; 
+  
+}
+
+.card-body img{
+    width: 250px;
+    height:170px;
+}
+
+.card .a .btn{
+    background-color: #4682B4
+}
+
+

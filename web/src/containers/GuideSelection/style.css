@@ -1,0 +1,96 @@
+.top-nav-bar
+{
+    height:57px;
+    top:0;
+    position:sticky;
+    background:#fff;
+    margin-bottom:20px;
+  
+    z-index:2;
+}
+
+.menu-bar
+{
+    width:40%;
+    height:57px;
+    float:right;   
+}
+
+.menu-bar ul
+{
+    display:inline-flex;
+    float:right;
+   
+}
+
+
+.menu-bar button[type='submit'] {
+    padding:0px 35px;
+    background-color: orange;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 5px;
+    border: none;
+    width: 100%;
+    cursor:pointer;
+    margin-right:20px;
+    text-align:center;
+    list-style-type:none;
+    border-left:1px solid #FFFFFF;
+    font-weight:bold;
+    
+  }
+  
+.menu-bar button[type='submit']:focus{
+    outline: none;      
+    box-shadow: 0 0 0 2px orange;
+  }
+
+
+  /*-------------------side bar CSS-------------------*/
+  .header{
+    background-color:black; 
+  }
+  .list-group
+  {
+      height:100%;
+      width:25%;
+      font-size:14px;
+      float:left;
+      z-index:2;
+      
+  }
+
+  .list-group button [type='button']{
+        margin-left:10px;
+        background-color: orange;
+        color: #fff;
+        
+  }
+  
+@media only screen and (max-width:980px)/*make nav bar responsive to all screens*/
+{
+    .top-nav-bar
+    {
+        height: 118px;
+        border-bottom: 0;
+    }
+    .search-box
+    {
+        width:100%;
+    }
+    .menu-bar
+    {
+        width:100%;
+    }
+    .menu-bar ul
+    {
+        margin:10px 0;
+        width:100%;
+    }
+    .menu-bar ul li 
+    {
+        height:57px;
+        width:100%;
+    }
+}
