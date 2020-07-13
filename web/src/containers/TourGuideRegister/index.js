@@ -7,36 +7,70 @@ class TourGuideRegister extends Component {
 		super(props);
 
 		this.state = {
-			firstname: '',
-			lastname: '',
+			fullname: '',
+			password1: '',
             email: '',
             phone: '',
 			password: ''
 		};
 
-		this.update = this.update.bind(this);
-
-		this.displayLogin = this.displayLogin.bind(this);
+	
 	}
 
-	update(e) {
-		let name = e.target.name;
-		let value = e.target.value;
+	updateName=(e)=> {
+		console.log(e.target.value)
 		this.setState({
-			[name]: value
+			fullname: e.target.value
+		});
+	}
+	updateEmail=(e)=> {
+		this.setState({
+			email: e.target.value
+		});
+	}
+	updateNumber=(e)=> {
+		this.setState({
+			phone: e.target.value
+		});
+	}
+	updatePassword=(e)=> {
+		this.setState({
+			password: e.target.value
+		});
+	}
+	confirmPassword=(e)=> {
+		this.setState({
+			password1: e.target.value
 		});
 	}
 
-	displayLogin(e) {
+	displayLogin=(e)=> {
 		e.preventDefault();
-		console.log('You have successfully registered');
-		console.log(this.state);
-		this.setState({
-			fullname: '',
-            email: '',
-            phone: '',
-			password: ''
-		});
+		if( this.state.fullname == "" ) {
+            alert( "Please provide your name!" );
+            
+            return false;
+         }
+         else if( this.state.email == "" ) {
+            alert( "Please provide your email!" );
+            
+            return false;
+		 }
+		 else if( this.state.phone == "" ) {
+            alert( "Please provide your phone number!" );
+            
+            return false;
+		 }
+		 else if( this.state.password == "" ) {
+            alert( "Please provide your password!" );
+            
+            return false;
+		 }
+		 else if( this.state.email != this.state.password1 ) {
+            alert( "Password confirmation is failed!" );
+            
+            return false;
+         }
 	}
 
 	render() {
@@ -50,18 +84,18 @@ class TourGuideRegister extends Component {
 							type="text"
 							placeholder="Full Name"
 							name="fullname"
-							value={this.state.fullname}
-							onChange={this.update}
+							
+							onChange={this.updateName}
 						/>
 					</div>
 
 					<div className="email">
 						<input
 							type="text"
-							placeholder="Email"
+							placeholder="Email Address"
 							name="email"
-							value={this.state.email}
-							onChange={this.update}
+							
+							onChange={this.updateEmail}
 						/>
 					</div>
 
@@ -70,8 +104,8 @@ class TourGuideRegister extends Component {
 							type="text"
 							placeholder="Phone"
 							name="phone"
-							value={this.state.phone}
-							onChange={this.update}
+							
+							onChange={this.updateNumber}
 						/>
 					</div>
 
@@ -80,8 +114,8 @@ class TourGuideRegister extends Component {
 							type="password"
 							placeholder="Password"
 							name="password"
-							value={this.state.password}
-							onChange={this.update}
+							
+							onChange={this.updatePassword}
 						/>
 					</div>
 
@@ -89,10 +123,11 @@ class TourGuideRegister extends Component {
                         <input
                             type="password" 
                             placeholder="Confirm Password" 
-                            name="password1"
+							name="password1"
+							onChange={this.confirmPassword}
                         />
 					</div>
-					<Link to="/tourguide" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Register</button></Link>
+					<button  type="submit" onClick={this.displayLogin}>Register</button>
 					
 				</form>
 				<Link to="/login" style={{ color: 'orange', padding: '10px 10px' }}>Already have an account? Sign in</Link>

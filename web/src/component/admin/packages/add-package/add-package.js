@@ -71,6 +71,7 @@ class Add_package extends Component{
     <Form.Group as={Col} controlId="formGridState">
       <Form.Label>Vehicle Type</Form.Label>
       <Form.Control as="select" onChange={this.updateVehicle} defaultValue="Choose...">
+        <option>...</option>
         <option>Car</option>
         <option>Van</option>
         <option>Bike</option>
@@ -91,6 +92,7 @@ class Add_package extends Component{
   <Form.Group as={Col} controlId="formGridState">
       <Form.Label>Rooms Condition</Form.Label>
       <Form.Control as="select" onChange={this.updateRoom} defaultValue="Choose...">
+        <option>...</option>
         <option>Non AC</option>
         <option>AC</option>
         

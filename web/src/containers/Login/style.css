@@ -2,45 +2,45 @@
     align-items: center;
     justify-content: center;
     padding: 20px 500px;
-  }
+}
   
 .login h2 {
-    font-size: 30px;
-    text-transform: uppercase;
-    text-align: center;
-    color: orange;
-  }
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  color: orange;
+}
 
 .login a {
-    text-align: center;
-  }
+  text-align: center;
+}
 
 .login input[type='text'] {
-    background-color: #e6e6e6;
-    color: #000000;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border: none;
-    width: 100%;
-    padding: 10px 20px;
-   
-  }
+  background-color: #e6e6e6;
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+ 
+}
 
 .login input[type=text]:focus{
-    outline: none;    
-    box-shadow: 0 0 0 2px orange;
-  }
-  
+  outline: none;    
+  box-shadow: 0 0 0 2px orange;
+}
+
 .login input[type='password'] {
-    background-color: #e6e6e6;
-    padding: 10px 20px;
-    color: #000000;
-    font-size: 16px;
-    margin-bottom: 20px;
-    border: none;
-    width: 100%;
-    
-  }
+  background-color: #e6e6e6;
+  padding: 10px 20px;
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: none;
+  width: 100%;
+  
+}
 
 .login input[type='password']:focus{
     outline: none;      
@@ -64,6 +64,5 @@
   }
   
 .check {
-    font-size: 16px;
-  }
-  
+  font-size: 16px;
+}

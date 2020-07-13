@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import AboutUs from './containers/AboutUs';
 import Login from './containers/Login';
@@ -13,11 +13,16 @@ import Dashboard from './component/admin/dashboard/dashboard';
 import Sidebar from './component/admin/sidebar/sidebar'
 import Navbar2 from './component/admin/navbar/nabar'
 import Packages from './component/admin/packages/packages';
+import firebase from 'firebase';
+import fire from './firebase';
+
+import Report from './component/user/report/report'
+import Reprot from './component/user/report/report';
 import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
 import SilverPlan from './containers/SilverPlan';
-import GuideSelection from './containers/GuideSelection';
+
 
 
 
@@ -29,6 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+      <Route path="/report" exact component={Reprot}/>
       <Switch>
         
         <Route path="/admin"
@@ -56,7 +62,7 @@ function App() {
         <Route path="/BronzePlan" component ={BronzePlan}/>
         <Route path="/GoldPlan" component ={GoldPlan}/>
         <Route path="/SilverPlan" component ={SilverPlan}/>
-        <Route path="/GuideSelection" component ={GuideSelection}/>
+        
         <Switch>
         <Route exact path="/admin" />
         
@@ -67,6 +73,12 @@ function App() {
     </BrowserRouter>
     
   );
+
 }
+
+
+  
+
+
 
 export default App;

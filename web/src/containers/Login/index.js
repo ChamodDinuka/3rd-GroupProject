@@ -13,27 +13,43 @@ class Login extends Component {
 			password: ''
 		};
 
-		this.update = this.update.bind(this);
-
-		this.displayLogin = this.displayLogin.bind(this);
+		
 	}
 
-	update(e) {
-		let name = e.target.name;
-		let value = e.target.value;
+	updateEmail=(e)=> {
+		
+		console.log(e.target.value);
 		this.setState({
-			[name]: value
+			email: e.target.value
+		});
+	}
+	updatePassword=(e)=> {
+		console.log(e.target.value)
+		this.setState({
+			password: e.target.value
 		});
 	}
 
-	displayLogin(e) {
+	displayLogin=(e)=> {
 		e.preventDefault();
-		console.log('You are logged in');
-		console.log(this.state);
-		this.setState({
-			email: '',
-			password: ''
-		});
+		console.log(this.state.email)
+		if( this.state.email == "" ) {
+            alert( "Please provide your email!" );
+            
+            return false;
+         }
+         else if( this.state.password == "" ) {
+            alert( "Please provide your password!" );
+            
+            return false;
+		 }
+		 if(this.state.email=="admin@gmail.com"){
+			 console.log("okay1")
+			window.location.href = "http://localhost:3000/admin"
+		 }
+			 
+		 
+		
 	}
 
 	render() {
@@ -42,27 +58,27 @@ class Login extends Component {
 				<form onSubmit={this.displayLogin}>
 					<h2>Login</h2>
                     
-					<div className="username">
+					<div className="email">
 						<input
 							type="text"
 							placeholder="Email Address"
-							value={this.state.email}
-							onChange={this.update}
+							onChange={this.updateEmail}
 							name="email"
+						
 						/>
 					</div>
 
-					<div className="password">
+					<div className="password" >
 						<input
 							type="password"
 							placeholder="Password"
-							value={this.state.password}
-							onChange={this.update}
+							onChange={this.updatePassword}
 							name="password"
+							
 						/>
 					</div>
-					<Link to="/GuideSelection" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Login</button></Link>
-					
+					<button  type="submit" onClick={this.displayLogin}>Login</button>
+				
 		
 				</form>
 				<Link to="/register" style={{ color: 'orange', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
