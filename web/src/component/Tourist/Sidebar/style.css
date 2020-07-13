@@ -1,0 +1,24 @@
+.side-menu
+{
+    height:79%;
+    width: 15%;
+    font-size:14px;
+    float: left;
+    z-index:2;
+    background-color:#ddd;
+}
+.side-menu ul
+{
+    margin-left:10px;
+}
+.side-menu ul li
+{
+    list-style-type:none;
+    font-weight:bold;
+    margin-top:10px;
+    cursor:pointer;
+}
+.side-menu ul li:hover
+{
+    color:orange;
+}

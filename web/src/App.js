@@ -6,7 +6,7 @@ import Register from './containers/Register';
 import TourGuideRegister from './containers/TourGuideRegister';
 import TouristRegister from './containers/TouristRegister';
 import ContactUs from './containers/ContactUs';
-import Navbar from './components/Navbar';
+
 import Home from './containers/Home';
 import {BrowserRouter , Router, Switch, Route} from 'react-router-dom';
 import Dashboard from './component/admin/dashboard/dashboard';
@@ -22,6 +22,7 @@ import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
 import SilverPlan from './containers/SilverPlan';
+
 
 
 
@@ -46,9 +47,10 @@ function App() {
            <Route path={`${url}/#`}  />
           </>
          )}
-      />
-        <Navbar/>
-      </Switch>
+        />
+        
+        </Switch>
+  
         <Route path="/" exact component ={Home}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>
@@ -60,6 +62,7 @@ function App() {
         <Route path="/BronzePlan" component ={BronzePlan}/>
         <Route path="/GoldPlan" component ={GoldPlan}/>
         <Route path="/SilverPlan" component ={SilverPlan}/>
+        
         <Switch>
         <Route exact path="/admin" />
         
