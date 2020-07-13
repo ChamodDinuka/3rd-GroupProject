@@ -1,12 +1,7 @@
 .register {
     align-items: center;
     justify-content: center;
-    padding: 30px 100px;
-      display: flex;
-      flex-direction: column;
-      height: 90vh;
-
-
+    padding: 20px 500px;
   }
  
 .register button[type='submit'] {
@@ -24,8 +19,9 @@
     outline: none;      
     box-shadow: 0 0 0 2px orange;
   }
-  img{
+.register img{
     height: 30vh;
+    padding: 10px 60px;
   }
   
   

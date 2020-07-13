@@ -92,7 +92,7 @@ class TourGuideRegister extends Component {
 					<div className="email">
 						<input
 							type="text"
-							placeholder="Email"
+							placeholder="Email Address"
 							name="email"
 							
 							onChange={this.updateEmail}

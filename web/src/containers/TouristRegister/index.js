@@ -56,7 +56,7 @@ class TouristRegister extends Component {
 					<div className="email">
 						<input
 							type="text"
-							placeholder="Email"
+							placeholder="Email Address"
 							name="email"
 							value={this.state.email}
 							onChange={this.update}
