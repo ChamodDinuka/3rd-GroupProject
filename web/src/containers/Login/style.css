@@ -1,19 +1,27 @@
 .login {
-    align-items: center;
-    justify-content: center;
-    padding: 20px 500px;
-}
+  align-items: center;
+  justify-content: center;
+  padding: 20px 500px;
+  }
+
+.login img{
+  height: 60px;
+  padding: 5px 95px;
+  width: 100%;
+  align-items: center;
+  }
   
 .login h2 {
   font-size: 30px;
   text-transform: uppercase;
   text-align: center;
-  color: orange;
-}
+  color: #4682B4;
+  margin-bottom: 10px;
+  }
 
 .login a {
   text-align: center;
-}
+  }
 
 .login input[type='text'] {
   background-color: #e6e6e6;
@@ -23,13 +31,14 @@
   border: none;
   width: 100%;
   padding: 10px 20px;
+  border-radius: 5px;
  
 }
 
 .login input[type=text]:focus{
   outline: none;    
-  box-shadow: 0 0 0 2px orange;
-}
+  box-shadow: 0 0 0 2px #4682B4;
+  }
 
 .login input[type='password'] {
   background-color: #e6e6e6;
@@ -39,30 +48,32 @@
   margin-bottom: 20px;
   border: none;
   width: 100%;
+  border-radius: 5px;
   
-}
+  }
 
 .login input[type='password']:focus{
     outline: none;      
-    box-shadow: 0 0 0 2px orange;
+    box-shadow: 0 0 0 2px #4682B4;
   }
   
 .login button[type='submit'] {
     padding: 10px 20px;
-    background-color: orange;
+    background-color: #4682B4;
     color: #fff;
     font-size: 25px;
     margin-top: 10px;
     margin-bottom: 20px;
     border: none;
     width: 100%;
+    border-radius: 5px;
   }
   
 .login button[type='submit']:focus{
     outline: none;      
-    box-shadow: 0 0 0 2px orange;
+    box-shadow: 0 0 0 2px #4682B4;
   }
   
 .check {
   font-size: 16px;
-}
+  }

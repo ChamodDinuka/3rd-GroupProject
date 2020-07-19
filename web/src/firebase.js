@@ -1,14 +1,17 @@
 import firebase from 'firebase';
+import "firebase/auth";
+import "firebase/firestore";
+
 require('dotenv').config()
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    databaseURL: process.env.DB_URL,
-    projectId: "iter-44dad",
-    storageBucket: process.env.BUCKET,
-    messagingSenderId: process.env.MESSAGE_ID,
-    appId: process.env.APP_ID,
-    measurementId: process.env.MEASUREMENT_ID
+  apiKey: "AIzaSyBZKGi3hngBapDpF-Q_JhHVmRogsg8dpjs",
+  authDomain: "iter-44dad.firebaseapp.com",
+  databaseURL: "https://iter-44dad.firebaseio.com",
+  projectId: "iter-44dad",
+  storageBucket: "iter-44dad.appspot.com",
+  messagingSenderId: "968742616363",
+  appId: "1:968742616363:web:0727ccce45be0b9099d96e",
+  measurementId: "G-S66JB0QGEE"
   };
   // Initialize Firebase
   
