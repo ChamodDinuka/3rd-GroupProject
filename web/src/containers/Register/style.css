@@ -6,22 +6,23 @@
  
 .register button[type='submit'] {
     padding: 10px 20px;
-    background-color: orange;
+    background-color:  #4682B4;
     color: #fff;
     font-size: 25px;
     margin-top: 60px;
     margin-bottom: 20px;
     border: none;
     width: 100%;
+    border-radius: 5px;
   }
   
 .register button[type='submit']:focus{
     outline: none;      
-    box-shadow: 0 0 0 2px orange;
+    box-shadow: 0 0 0 2px #4682B4;
   }
 .register img{
     height: 30vh;
-    padding: 10px 60px;
+    padding: 10px 70px;
   }
   
   
