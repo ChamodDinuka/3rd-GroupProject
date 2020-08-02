@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 import './style.css'
+import firebase from 'firebase';
 
   
 
@@ -10,7 +11,8 @@ class Login extends Component {
 
 		this.state = {
 			email: '',
-			password: ''
+			password: '',
+			redirect: null
 		};
 
 		
@@ -47,15 +49,23 @@ class Login extends Component {
 			 console.log("okay1")
 			window.location.href = "http://localhost:3000/admin"
 		 }
-			 
-		 
-		
+
+		 firebase
+		.auth()
+		.signInWithEmailAndPassword(this.state.email, this.state.password)
+		.then(() => this.setState({ redirect: '#' })) 
+		.catch((error) => this.setState({ errorMessage: error.message }));
+			 	
 	}
 
 	render() {
+		if (this.state.redirect) {
+			return <Redirect to={this.state.redirect} />
+		}
 		return (
 			<div className="login">
 				<form onSubmit={this.displayLogin}>
+				<img class="logo" src="/images/logo.png"/>
 					<h2>Login</h2>
                     
 					<div className="email">
@@ -81,7 +91,7 @@ class Login extends Component {
 				
 		
 				</form>
-				<Link to="/register" style={{ color: 'orange', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
+				<Link to="/register" style={{ color: '#4682B4', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
 			</div>
 		);
 	}
