@@ -22,6 +22,7 @@ import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
 import SilverPlan from './containers/SilverPlan';
+import Chatbot from './component/others/chatbot/chatbot'
 
 
 
@@ -52,6 +53,7 @@ function App() {
         </Switch>
   
         <Route path="/" exact component ={Home}/>
+        <Route path="/chat" exact component={Chatbot}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>
         <Route path="/tourguideregister" component ={TourGuideRegister}/>
