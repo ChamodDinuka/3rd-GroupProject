@@ -23,6 +23,7 @@ import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
 import SilverPlan from './containers/SilverPlan';
 import Chatbot from './component/others/chatbot/chatbot'
+import Add_palce from './component/admin/add_palce/add-place'
 
 
 
@@ -45,7 +46,7 @@ function App() {
            <Sidebar/>
            <Route path={`${url}/`} component={Dashboard} exact />
            <Route path={`${url}/packages`}  component={Packages} exact  />
-           <Route path={`${url}/#`}  />
+           <Route path={`${url}/addPlace`}  component={Add_palce} exact/>
           </>
          )}
         />
