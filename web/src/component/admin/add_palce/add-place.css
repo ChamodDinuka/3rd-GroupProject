@@ -29,3 +29,7 @@ input#exampleFormControlFile {
     padding: 6px;
     width: 250px;
 }
+.progress {
+    width: 293px;
+    margin-top: 5px;
+}

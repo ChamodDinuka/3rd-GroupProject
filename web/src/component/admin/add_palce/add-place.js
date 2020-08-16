@@ -1,17 +1,32 @@
 import React,{Component} from 'react'
 import './add-place.css'
-import {Form,Button,Col} from 'react-bootstrap'
+import {Form,Button,Col,ProgressBar} from 'react-bootstrap'
+import firebase from '../../../firebase'
+import { storage } from 'firebase'
 
 class Add_place extends Component{
     constructor(props) {
         super(props)
         this.state = {
+          temp_video:'',
+          temp_audio:'',
+          temp_description:'',
+          temp_image:null,
+          prog_audio:'',
+          prog_image:'',
+          package:'',
           currentStep: 1,
-          places:["aa","bb","cc"],
-          email:  '',
-          username: '',
-          password: '', 
+          places:["aa","bb","cc","dd"],
+          videos:[ ],
+          audio:[],
+          description:[],
+          image:[],
+          progress:[]
         }
+      }
+      componentDidMount(){
+        console.log(this.state.places.length)
+       
       }
     
       handleChange = event => {
@@ -23,27 +38,63 @@ class Add_place extends Component{
        
       handleSubmit = event => {
         event.preventDefault()
-        const { email, username, password } = this.state
-        alert(`Your registration detail: \n 
-               Email: ${email} \n 
-               Username: ${username} \n
-               Password: ${password}`)
+        console.log(this.state.video)
       }
       
       _next = () => {
         let currentStep = this.state.currentStep
-        currentStep = currentStep >= 2? 3: currentStep + 1
+        
+        this.state.videos.push({"video":this.state.temp_video,"name":currentStep})
+        this.state.audio.push({"audio":this.state.temp_audio,"name":currentStep})
+        this.state.description.push({"description":this.state.temp_description,"name":currentStep})
+        this.state.image.push({"image":this.state.temp_image,"name":currentStep})
+        console.log(this.state.image[currentStep-1].image)
+        
+
+        currentStep = currentStep >= this.state.places.length-1? this.state.places.length: currentStep + 1
+        
         this.setState({
-          currentStep: currentStep
+          currentStep: currentStep,
         })
+        if(this.state.videos.length<currentStep){
+          this.setState({
+            temp_video:'',
+          })
+        }else{
+          this.setState({
+            temp_video:this.state.videos[currentStep-1].video,
+           })
+        }
+        if(this.state.description.length<currentStep){
+          this.setState({
+            temp_description:'',
+          })
+        }else{
+          this.setState({
+            temp_description:this.state.description[currentStep-1].description,
+           })
+        }
+        if(this.state.image.length<currentStep){
+          this.setState({
+            temp_image:'',
+          })
+        }else{
+          this.setState({
+            temp_image:this.state.image[currentStep-1].image,
+           })
+        }
       }
         
       _prev = () => {
         let currentStep = this.state.currentStep
+        
+        
         currentStep = currentStep <= 1? 1: currentStep - 1
         this.setState({
-          currentStep: currentStep
+          currentStep: currentStep,
+         
         })
+        
       }
     
     /*
@@ -55,7 +106,7 @@ class Add_place extends Component{
         return (
           <button 
             className="btn btn-secondary" 
-            type="button" onClick={this._prev}>
+            type="reset" value="reset" onClick={this._prev}>
           Previous
           </button>
         )
@@ -65,11 +116,11 @@ class Add_place extends Component{
     
     nextButton(){
       let currentStep = this.state.currentStep;
-      if(currentStep <3){
+      if(currentStep <this.state.places.length){
         return (
           <button 
             className="btn btn-primary float-right" 
-            type="button" onClick={this._next}>
+            type="reset" value="reset" onClick={this._next}>
           Next
           </button>        
         )
@@ -79,12 +130,59 @@ class Add_place extends Component{
     }
     sub(){
         let currentStep = this.state.currentStep;
-        if(currentStep==3){
+        if(currentStep==this.state.places.length){
             return(
           <button className="btn btn-primary float-right">Submit</button>
             )
         }
         return null;
+    }
+    video=(e)=>{
+    
+     this.setState({
+       temp_video:e.target.value
+       
+     })
+       // this.state.video[this.state.currentStep-1]=e.target.value
+        
+    }
+    description=(e)=>{
+        this.setState({
+          temp_description:e.target.value
+        })
+    }
+    audio=e=>{
+      this.setState({
+        temp_audio:e.target.files[0]
+      })
+      console.log(this.state.temp_audio)
+    }
+    image=(e)=>{
+      const file=e.target.files[0]
+      const storage=firebase.storage()
+      const uploadTask = storage.ref(`/images/${file.name}`).put(file)
+      //initiates the firebase side uploading 
+      uploadTask.on('state_changed', 
+      (snapShot) => {
+        const complete=Math.round((snapShot.bytesTransferred/snapShot.totalBytes)*100)
+        this.setState({prog_image:complete})
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot)
+      }, (err) => {
+        //catches the errors
+        console.log(err)
+      }, () => {
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        storage.ref('images').child(file.name).getDownloadURL()
+         .then(fireBaseUrl => {
+           console.log(fireBaseUrl)
+         })
+      })
+        
+      
+     
+      
     }
       
     render(){
@@ -100,35 +198,39 @@ class Add_place extends Component{
         render the form steps and pass required props in
       */}<Form onSubmit={this.handleSubmit}>
           <h5 id="add">Package Name</h5>
-          <div className="form-body">
+          <div className="form-body" >
   <Form.Row>
-    <Form.Group as={Col} controlId="formGridEmail">
+    <Form.Group as={Col} controlId="formGridEmail" >
       <Form.Label>Place</Form.Label>
-      <Form.Control type="text" placeholder="Enter Place" />
+      <Form.Control type="text"  placeholder="Enter Place"  value={this.state.places[this.state.currentStep-1]}/>
     </Form.Group>
 
     <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Video Link</Form.Label>
-      <Form.Control type="text" placeholder="Youtube Link" />
+      <Form.Control type="text" placeholder="Youtube Link" onChange={this.video}  value={this.state.temp_video} />
     </Form.Group>
   </Form.Row>
 
   <Form.Group controlId="exampleForm.ControlTextarea">
     <Form.Label>Description</Form.Label>
-    <textarea id="add" name="w3review" rows="4" cols="50"></textarea>
+    <textarea id="add"  rows="4" cols="50" onChange={this.description} value={this.state.temp_description}></textarea>
   </Form.Group>
 
   <Form.Row>
   <Form.Group as={Col} controlId="formGridPassword">
-      <Form.Label>Audio File</Form.Label>
-      <Form.File id="exampleFormControlFile"  />
+      <Form.Label>Audio File</Form.Label><br/>
+      <input type="file"  onChange={this.audio} />
+      <br/>
+      <ProgressBar animated now={0} />
     </Form.Group>
   </Form.Row>
 
   <Form.Row>
   <Form.Group as={Col} controlId="formGridPassword">
-      <Form.Label>Image</Form.Label>
-      <Form.File id="exampleFormControlFile"  />
+      <Form.Label>Image</Form.Label><br/>
+      <input type="file" onChange={this.image} />
+      <br/>
+      <ProgressBar animated now={this.state.prog_image} />
     </Form.Group>
    
   </Form.Row>
@@ -152,66 +254,4 @@ class Add_place extends Component{
         );
     }
 }
-function Step1(props) {
-    if (props.currentStep !== 1) {
-      return null
-    } 
-    return(
-      <div className="form-group">
-        <label htmlFor="email">Email address</label>
-        <input
-          className="form-control"
-          id="email"
-          name="email"
-          type="text"
-          placeholder="Enter email"
-          value={props.email}
-          onChange={props.handleChange}
-          />
-      </div>
-    );
-  }
-  
-  function Step2(props) {
-    if (props.currentStep !== 2) {
-      return null
-    } 
-    return(
-      <div className="form-group">
-        <label htmlFor="username">Username</label>
-        <input
-          className="form-control"
-          id="username"
-          name="username"
-          type="text"
-          placeholder="Enter username"
-          value={props.username}
-          onChange={props.handleChange}
-          />
-      </div>
-    );
-  }
-  
-  function Step3(props) {
-    if (props.currentStep !== 3) {
-      return null
-    } 
-    return(
-      <React.Fragment>
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input
-          className="form-control"
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Enter password"
-          value={props.password}
-          onChange={props.handleChange}
-          />      
-      </div>
-      <button className="btn btn-success btn-block">Sign up</button>
-      </React.Fragment>
-    );
-  }
 export default Add_place
