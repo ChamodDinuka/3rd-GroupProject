@@ -11,7 +11,7 @@ class Add_place extends Component{
           temp_video:'',
           temp_audio:'',
           temp_description:'',
-          temp_image:null,
+          temp_image:'',
           prog_audio:'',
           prog_image:'',
           package:'',
@@ -21,7 +21,6 @@ class Add_place extends Component{
           audio:[],
           description:[],
           image:[],
-          progress:[]
         }
       }
       componentDidMount(){
@@ -44,11 +43,11 @@ class Add_place extends Component{
       _next = () => {
         let currentStep = this.state.currentStep
         
-        this.state.videos.push({"video":this.state.temp_video,"name":currentStep})
-        this.state.audio.push({"audio":this.state.temp_audio,"name":currentStep})
-        this.state.description.push({"description":this.state.temp_description,"name":currentStep})
-        this.state.image.push({"image":this.state.temp_image,"name":currentStep})
-        console.log(this.state.image[currentStep-1].image)
+        this.state.videos.push({"video":this.state.temp_video,"name":this.state.places[currentStep-1]})
+        this.state.audio.push({"audio":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_audio})
+        this.state.description.push({"description":this.state.temp_description,"name":this.state.places[currentStep-1]})
+        this.state.image.push({"image":this.state.temp_image,"name":this.state.places[currentStep-1],"progress":this.state.prog_image})
+        console.log(this.state.audio[currentStep-1].audio,this.state.audio[currentStep-1].name)
         
 
         currentStep = currentStep >= this.state.places.length-1? this.state.places.length: currentStep + 1
@@ -76,11 +75,20 @@ class Add_place extends Component{
         }
         if(this.state.image.length<currentStep){
           this.setState({
-            temp_image:'',
+            prog_image:'',
           })
         }else{
           this.setState({
-            temp_image:this.state.image[currentStep-1].image,
+            prog_image:this.state.image[currentStep-1].progress,
+           })
+        }
+        if(this.state.audio.length<currentStep){
+          this.setState({
+            prog_audio:'',
+          })
+        }else{
+          this.setState({
+            prog_audio:this.state.audio[currentStep-1].progress,
            })
         }
       }
@@ -152,10 +160,30 @@ class Add_place extends Component{
         })
     }
     audio=e=>{
-      this.setState({
-        temp_audio:e.target.files[0]
+      const file=e.target.files[0]
+      const storage=firebase.storage()
+      const uploadTask = storage.ref(`/audio/${file.name}`).put(file)
+      //initiates the firebase side uploading 
+      uploadTask.on('state_changed', 
+      (snapShot) => {
+        const complete=Math.round((snapShot.bytesTransferred/snapShot.totalBytes)*100)
+        this.setState({prog_audio:complete})
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot)
+      }, (err) => {
+        //catches the errors
+        console.log(err)
+      }, () => {
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        storage.ref('audio').child(file.name).getDownloadURL()
+         .then(fireBaseUrl => {
+           this.setState({
+             temp_audio:fireBaseUrl
+           })
+         })
+         
       })
-      console.log(this.state.temp_audio)
     }
     image=(e)=>{
       const file=e.target.files[0]
@@ -176,7 +204,10 @@ class Add_place extends Component{
         // gets the download url then sets the image from firebase as the value for the imgUrl key:
         storage.ref('images').child(file.name).getDownloadURL()
          .then(fireBaseUrl => {
-           console.log(fireBaseUrl)
+           this.setState({
+             temp_image:fireBaseUrl
+           })
+           
          })
       })
         
@@ -220,8 +251,7 @@ class Add_place extends Component{
   <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Audio File</Form.Label><br/>
       <input type="file"  onChange={this.audio} />
-      <br/>
-      <ProgressBar animated now={0} />
+      <ProgressBar animated now={this.state.prog_audio} />
     </Form.Group>
   </Form.Row>
 
@@ -229,7 +259,6 @@ class Add_place extends Component{
   <Form.Group as={Col} controlId="formGridPassword">
       <Form.Label>Image</Form.Label><br/>
       <input type="file" onChange={this.image} />
-      <br/>
       <ProgressBar animated now={this.state.prog_image} />
     </Form.Group>
    
