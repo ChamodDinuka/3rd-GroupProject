@@ -37,17 +37,27 @@ class Add_place extends Component{
        
       handleSubmit = event => {
         event.preventDefault()
-        console.log(this.state.video)
+        alert("hii")
       }
       
       _next = () => {
         let currentStep = this.state.currentStep
-        
-        this.state.videos.push({"video":this.state.temp_video,"name":this.state.places[currentStep-1]})
-        this.state.audio.push({"audio":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_audio})
-        this.state.description.push({"description":this.state.temp_description,"name":this.state.places[currentStep-1]})
-        this.state.image.push({"image":this.state.temp_image,"name":this.state.places[currentStep-1],"progress":this.state.prog_image})
-        console.log(this.state.audio[currentStep-1].audio,this.state.audio[currentStep-1].name)
+
+        let newArray = Array.from(this.state.videos);
+        newArray[currentStep-1]={"video":this.state.temp_video,"name":this.state.places[currentStep-1]}
+        this.setState({videos: newArray});
+
+        newArray = Array.from(this.state.description);
+        newArray[currentStep-1]={"description":this.state.temp_description,"name":this.state.places[currentStep-1]}
+        this.setState({description: newArray});
+
+        newArray = Array.from(this.state.audio);
+        newArray[currentStep-1]={"audio":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_audio}
+        this.setState({audio: newArray});
+
+        newArray = Array.from(this.state.image);
+        newArray[currentStep-1]={"image":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        this.setState({image: newArray});
         
 
         currentStep = currentStep >= this.state.places.length-1? this.state.places.length: currentStep + 1
@@ -63,7 +73,7 @@ class Add_place extends Component{
           this.setState({
             temp_video:this.state.videos[currentStep-1].video,
            })
-        }
+        } console.log("length ",this.state.videos.length,"temp",this.state.temp_video,"current",currentStep)
         if(this.state.description.length<currentStep){
           this.setState({
             temp_description:'',
@@ -96,12 +106,66 @@ class Add_place extends Component{
       _prev = () => {
         let currentStep = this.state.currentStep
         
+        let newArray = Array.from(this.state.videos);
+        newArray[currentStep-1]={"video":this.state.temp_video,"name":this.state.places[currentStep-1]}
+        this.setState({videos: newArray});
+
+        newArray = Array.from(this.state.description);
+        newArray[currentStep-1]={"description":this.state.temp_description,"name":this.state.places[currentStep-1]}
+        this.setState({description: newArray});
+
+        newArray = Array.from(this.state.audio);
+        newArray[currentStep-1]={"audio":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_audio}
+        this.setState({audio: newArray});
+
+        newArray = Array.from(this.state.image);
+        newArray[currentStep-1]={"image":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        this.setState({image: newArray});
+
         
+        
+
         currentStep = currentStep <= 1? 1: currentStep - 1
         this.setState({
           currentStep: currentStep,
          
         })
+        if(this.state.videos.length<currentStep){
+          this.setState({
+            temp_video:'',
+          })
+        }else{
+          this.setState({
+            temp_video:this.state.videos[currentStep-1].video,
+           })
+        } console.log("length ",this.state.videos.length,"temp",this.state.temp_video,"current",currentStep)
+        if(this.state.description.length<currentStep){
+          this.setState({
+            temp_description:'',
+          })
+        }else{
+          this.setState({
+            temp_description:this.state.description[currentStep-1].description,
+           })
+        }
+        if(this.state.image.length<currentStep){
+          this.setState({
+            prog_image:'',
+          })
+        }else{
+          this.setState({
+            prog_image:this.state.image[currentStep-1].progress,
+           })
+        }
+        if(this.state.audio.length<currentStep){
+          this.setState({
+            prog_audio:'',
+          })
+        }else{
+          this.setState({
+            prog_audio:this.state.audio[currentStep-1].progress,
+           })
+        }
         
       }
     
