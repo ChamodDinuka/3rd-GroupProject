@@ -14,9 +14,9 @@ class Add_place extends Component{
           temp_image:'',
           prog_audio:'',
           prog_image:'',
-          package:'',
+          package:'Silver Package',
           currentStep: 1,
-          places:["aa","bb","cc","dd"],
+          places:["anuradapura","Yala","Sinharaja","Hikkaduwa"],
           videos:[ ],
           audio:[],
           description:[],
@@ -35,11 +35,44 @@ class Add_place extends Component{
         })    
       }
        
-      handleSubmit = event => {
+      handleSubmit =async (event) => {
         event.preventDefault()
-        alert("hii")
+        let currentStep = this.state.currentStep
+
+        
+        let newArray =await Array.from(this.state.videos);
+        newArray[currentStep-1]={"video":this.state.temp_video,"name":this.state.places[currentStep-1]}
+        await this.setState({videos: newArray});
+
+        newArray =await Array.from(this.state.description);
+        newArray[currentStep-1]={"description":this.state.temp_description,"name":this.state.places[currentStep-1]}
+        await this.setState({ description: newArray });
+
+        newArray =await Array.from(this.state.audio);
+        newArray[currentStep-1]={"audio":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_audio}
+        await this.setState({audio: newArray});
+
+        newArray =await Array.from(this.state.image);
+        newArray[currentStep-1]={"image":this.state.temp_image,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        await this.setState({image: newArray});
+
+       const db=firebase.firestore()
+        db.collection("places").add({
+         package:this.state.package,
+         places:this.state.places,
+         videos:this.state.videos,
+         audio:this.state.audio,
+         description:this.state.description,
+         image:this.state.image,
+
+      })
+      .then(function(docRef) {
+          console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+          console.error("Error adding document: ", error);
+      }); 
       }
-      
       _next = () => {
         let currentStep = this.state.currentStep
 
@@ -56,10 +89,11 @@ class Add_place extends Component{
         this.setState({audio: newArray});
 
         newArray = Array.from(this.state.image);
-        newArray[currentStep-1]={"image":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        newArray[currentStep-1]={"image":this.state.temp_image,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        console.log(newArray)
         this.setState({image: newArray});
-        
-
+        console.log(this.state.image)
+      
         currentStep = currentStep >= this.state.places.length-1? this.state.places.length: currentStep + 1
         
         this.setState({
@@ -73,7 +107,7 @@ class Add_place extends Component{
           this.setState({
             temp_video:this.state.videos[currentStep-1].video,
            })
-        } console.log("length ",this.state.videos.length,"temp",this.state.temp_video,"current",currentStep)
+        }
         if(this.state.description.length<currentStep){
           this.setState({
             temp_description:'',
@@ -86,21 +120,27 @@ class Add_place extends Component{
         if(this.state.image.length<currentStep){
           this.setState({
             prog_image:'',
+            temp_image:''
           })
         }else{
           this.setState({
+            temp_image:this.state.image[currentStep-1].image,
             prog_image:this.state.image[currentStep-1].progress,
            })
         }
         if(this.state.audio.length<currentStep){
           this.setState({
+            temp_audio:'',
             prog_audio:'',
           })
         }else{
           this.setState({
+            temp_audio:this.state.audio[currentStep-1].audio,
             prog_audio:this.state.audio[currentStep-1].progress,
            })
         }
+      
+        console.log(currentStep  ,this.state.image[currentStep-1])
       }
         
       _prev = () => {
@@ -119,7 +159,7 @@ class Add_place extends Component{
         this.setState({audio: newArray});
 
         newArray = Array.from(this.state.image);
-        newArray[currentStep-1]={"image":this.state.temp_audio,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
+        newArray[currentStep-1]={"image":this.state.temp_image,"name":this.state.places[currentStep-1],"progress":this.state.prog_image}
         this.setState({image: newArray});
 
         
@@ -150,23 +190,26 @@ class Add_place extends Component{
         }
         if(this.state.image.length<currentStep){
           this.setState({
+            temp_image:'',
             prog_image:'',
           })
         }else{
           this.setState({
+            temp_image:this.state.image[currentStep-1].image,
             prog_image:this.state.image[currentStep-1].progress,
            })
         }
         if(this.state.audio.length<currentStep){
           this.setState({
+            temp_audio:'',
             prog_audio:'',
           })
         }else{
           this.setState({
+            temp_audio:this.state.audio[currentStep-1].audio,
             prog_audio:this.state.audio[currentStep-1].progress,
            })
         }
-        
       }
     
     /*
@@ -204,7 +247,7 @@ class Add_place extends Component{
         let currentStep = this.state.currentStep;
         if(currentStep==this.state.places.length){
             return(
-          <button className="btn btn-primary float-right">Submit</button>
+          <button className="btn btn-primary float-right" type="submit" onClick={this.handleSubmit}>Submit</button>
             )
         }
         return null;
@@ -268,6 +311,7 @@ class Add_place extends Component{
         // gets the download url then sets the image from firebase as the value for the imgUrl key:
         storage.ref('images').child(file.name).getDownloadURL()
          .then(fireBaseUrl => {
+          console.log(fireBaseUrl)
            this.setState({
              temp_image:fireBaseUrl
            })
@@ -291,7 +335,7 @@ class Add_place extends Component{
       
       {/* 
         render the form steps and pass required props in
-      */}<Form onSubmit={this.handleSubmit}>
+      */}<Form >
           <h5 id="add">Package Name</h5>
           <div className="form-body" >
   <Form.Row>
