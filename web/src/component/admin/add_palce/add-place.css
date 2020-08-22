@@ -1,0 +1,35 @@
+div.Add-place{
+    margin-right: 1px;
+    margin-left: 114px;
+}
+.Add-place {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: -100vh;
+    color: black;
+}
+input#exampleFormControlFile1 {
+    padding: 6px;
+}
+h5#add {
+    padding: 5px;
+    background: orange;
+}
+.form-body {
+    padding: 5px;
+}
+textarea#add {
+    width: 100%;
+    max-height: 150px;
+}
+input#exampleFormControlFile {
+    padding: 6px;
+    width: 250px;
+}
+.progress {
+    width: 293px;
+    margin-top: 5px;
+}
