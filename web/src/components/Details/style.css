@@ -61,12 +61,14 @@
     font-family: var(--Lobster);
   }
 .Forwhom .cards .card{
+    margin-top: 100px;
     width:22rem;
     margin:3vmin;
    
 }
 
 .cards .div{
+    
     padding:0;
     margin:0;
 }

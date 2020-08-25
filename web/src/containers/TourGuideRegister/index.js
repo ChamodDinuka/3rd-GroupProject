@@ -107,7 +107,7 @@ class TourGuideRegister extends Component {
 		return (
 			<div className="tourguideregister">
 				<form onSubmit={this.displayLogin}>
-				<img class="logo" src="/images/logo.png"/>
+				<Link to="/"><img class="logo" src="/images/logo.png"/></Link>
 					<h2>Tour Guide</h2>
 
 					<div className="name">
