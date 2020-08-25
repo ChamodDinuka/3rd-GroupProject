@@ -1,0 +1,48 @@
+.chat-body {
+    min-height: 200px;
+    max-height: 200px;
+    overflow-y: scroll;
+    background: white;
+    color: black;
+    padding: 5px;
+}
+.chat {
+    margin-left: 5px;
+    width: 300px;
+    margin-top: 30%;
+    margin-left: 70%;
+    position: fixed;
+    background: antiquewhite;
+}
+.chat-fotter {
+    padding: 5px;
+    background: #007bff;
+}
+.chat-header {
+    background: #007bff;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+input#chat {
+    border-radius: 5px;
+    border: none;
+}
+.problem {
+    float: right;
+    padding: 2px;
+    margin-bottom: 3px;
+    max-width: 260px;
+    background: darkseagreen;
+    color: white;
+    border-radius: 10px;
+}
+.answer{
+    background:darkturquoise;
+    color: white;
+    max-width: 280px;
+    padding:2px;
+    margin-bottom: 3px;
+    float: left;
+    border-radius: 10px;
+}

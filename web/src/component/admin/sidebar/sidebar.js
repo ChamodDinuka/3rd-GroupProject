@@ -9,7 +9,7 @@ class Sidebar extends Component{
             <div className="admin-side">
                 <ul>
                     <li id="side"><a href="/admin">Dashboard</a></li>
-                    <li id="side"><a href="#">Add Place</a></li>
+                    <li id="side"><a href="/admin/addPlace">Add Place</a></li>
                     <li id="side"><a  href="/admin/packages">Packages</a></li>
                 </ul>
             </div>

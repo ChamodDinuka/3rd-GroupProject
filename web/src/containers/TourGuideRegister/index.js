@@ -65,19 +65,19 @@ class TourGuideRegister extends Component {
 
 	displayLogin=(e)=> {
 		e.preventDefault();
-		if( this.state.fullname == "" ) {
+		if( this.state.fullname === "" ) {
             alert( "Please provide your name!" );
             
             return false;
 		 }
 	
-         else if( this.state.email == "" ) {
+         else if( this.state.email === "" ) {
             alert( "Please provide your email!" );
             
             return false;
 		 }
 		
-		 else if( this.state.password == "" ) {
+		 else if( this.state.password === "" ) {
             alert( "Please provide your password!" );
             
             return false;
