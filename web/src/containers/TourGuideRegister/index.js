@@ -31,6 +31,7 @@ class TourGuideRegister extends Component {
 			tripnumber:'',
 			experience:'',
 			expertin:'',
+			submitreports:'',
 			email: '',
 			password: '',
 			password1: '',
@@ -107,7 +108,7 @@ class TourGuideRegister extends Component {
 		return (
 			<div className="tourguideregister">
 				<form onSubmit={this.displayLogin}>
-				<img class="logo" src="/images/logo.png"/>
+				
 					<h2>Tour Guide</h2>
 
 					<div className="name">
@@ -199,6 +200,15 @@ class TourGuideRegister extends Component {
 							<option value="tamil">Tamil</option>
           				</select>
         			</label>
+
+					<label>
+                        Submit Reports
+						<input 
+							type="file"
+							name="submitreports"
+							onChange={this.onFileChange} 
+					    />
+                    </label>
 
 					<div className="email">
 						<input

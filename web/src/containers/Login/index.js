@@ -65,7 +65,6 @@ class Login extends Component {
 		return (
 			<div className="login">
 				<form onSubmit={this.displayLogin}>
-				<img class="logo" src="/images/logo.png"/>
 					<h2>Login</h2>
                     
 					<div className="email">
