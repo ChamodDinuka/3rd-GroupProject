@@ -2,3 +2,4 @@
 [0703/180318.672:ERROR:process_info.cc(556)] ReadMemoryInfo failed
 [0703/180318.672:ERROR:process_memory_win.cc(39)] Failed to initialize ProcessInfo.
 [0703/180318.672:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[0828/072958.764:ERROR:settings.cc(401)] Settings magic is not 1129342067
