@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
-import {Card,Image,Col,Button,Row} from 'react-bootstrap'
+import {Card,Image,Col,Button,Row,OverlayTrigger,Popover} from 'react-bootstrap'
 import Navbar from '../../others/navbar/navbar'
 import './tourist-home.css'
 import firebase from '../../../firebase'
+import Chat from '../../others/chatbot/chatbot'
 
 class Tourist_home extends Component{
 
@@ -47,7 +48,23 @@ class Tourist_home extends Component{
         return(
             <><Navbar/>
             <div className="home">
+            <OverlayTrigger
+                trigger="click"
+                key='top'
+                placement='top'
+                overlay={
+                    <Popover id={`popover-positioned-top`}>
+                    
+                    
+                            <Chat/>
+                    
+                    </Popover>
+                }
+            >
+      <Button id="tourist" variant="success"><i class="fa fa-whatsapp" aria-hidden="true"></i> </Button>
+    </OverlayTrigger>
                 
+            
                 {this.state.place.map((data,i)=>{
                     
                     return(
