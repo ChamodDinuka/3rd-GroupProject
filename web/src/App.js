@@ -25,6 +25,7 @@ import SilverPlan from './containers/SilverPlan';
 import Chatbot from './component/others/chatbot/chatbot'
 import Add_palce from './component/admin/add_palce/add-place'
 import Tourist_home from './component/Tourist/tourist-home/tourist-home'
+import Tourist_profile from './component/Tourist/profile/tourist-profile'
 
 
 
@@ -56,6 +57,7 @@ function App() {
   
         <Route path="/" exact component ={Home}/>
         <Route path="/tourist" exact component={Tourist_home}/>
+        <Route path="/tourist/profile" exact component={Tourist_profile}/>
         <Route path="/chat" exact component={Chatbot}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>

@@ -1,0 +1,22 @@
+.tourist-profile{
+    background-color: aliceblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: black;
+}
+ul#instruction {
+    margin-left: 10px;
+}
+p#instruction {
+    margin-left: 5px;
+}
+.guide-view {
+    width: 100%;
+}
+.details {
+    width: 100%;
+}

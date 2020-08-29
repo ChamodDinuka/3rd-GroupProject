@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import './navbar.css'
 
 class Navbar extends Component{
     render(){
@@ -15,13 +16,13 @@ class Navbar extends Component{
                         <div class="mr-auto"></div>
                         <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#"><button class="btn btn-primary px-5 py-2">Home</button> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/tourist/profile"><button class="btn btn-primary px-5 py-2"><i class="fa fa-user-plus" aria-hidden="true"></i>Guide</button> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/register"><button class="btn btn-primary px-5 py-2">Sign Up</button></a>
+                            <a class="nav-link" href="/login"><button class="btn btn-primary px-5 py-2">Sign In</button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login"><button class="btn btn-primary px-5 py-2">Log In</button></a>
+                            <a class="nav-link" href="#"><button class="btn btn-primary px-5 py-2">Sign Out</button></a>
                         </li>
                         
                         </ul>
