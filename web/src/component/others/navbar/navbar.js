@@ -1,7 +1,12 @@
 import React,{Component} from 'react'
 import './navbar.css'
+import firebase from '../../../firebase'
+
 
 class Navbar extends Component{
+    signout=()=>{
+        firebase.auth().signOut()
+    }
     render(){
         return(
             <>
@@ -22,7 +27,7 @@ class Navbar extends Component{
                             <a class="nav-link" href="/login"><button class="btn btn-primary px-5 py-2">Sign In</button></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><button class="btn btn-primary px-5 py-2">Sign Out</button></a>
+                            <a class="nav-link" href="#" onClick={this.signout}><button class="btn btn-primary px-5 py-2">Sign Out</button></a>
                         </li>
                         
                         </ul>

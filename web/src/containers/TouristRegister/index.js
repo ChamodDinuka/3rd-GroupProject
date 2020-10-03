@@ -11,10 +11,20 @@ class TouristRegister extends Component {
             fullname: '',
             email: '',
 			password: '',
+			uid:'',
+			country:'',
+			package_name:'',
+			guide_name:'',
 			redirect: null
 		};
 
 		
+	}
+	updateCountry = (e) => {
+		console.log(e.target.value)
+		this.setState({
+			country: e.target.value
+		});
 	}
 
 	updateName = (e) => {
@@ -57,22 +67,36 @@ class TouristRegister extends Component {
 			alert("Please provide your password!");
 
 			return false;
-		}
+		}else{
 
 		firebase
 		.auth()
 		.createUserWithEmailAndPassword(this.state.email, this.state.password)
 		.then(() => {
 			//console.trace("TEST");
+			var db=firebase.firestore()
+			db.collection("tourist").add({
+				name: this.state. fullname,
+				email: this.state.email,
+			
+				package_name:this.state.package_name,
+				guide_name:this.state.guide_name
+			})
+			.then(function(docRef) {
+				console.log("Document written with ID: ", docRef.id);
+			})
+			.catch(function(error) {
+				console.error("Error adding document: ", error);
+			});
 			this.setState({
-				redirect: 'login'
+				redirect: 'login',
 			})
 		})
 		.catch((error) => {
 			console.log(error);
 
 		});
-
+		}
 
 	}
 
@@ -101,7 +125,7 @@ class TouristRegister extends Component {
 
 					<label>
                         Country
-                        <select value={this.state.value} onChange={this.handleChange}>
+                        <select value={this.state.value} onChange={this.updateCountry}>
             				<option value="india">India</option>
             				<option value="china">China</option>
             				<option value="unitedKingdom">United Kingdom</option>

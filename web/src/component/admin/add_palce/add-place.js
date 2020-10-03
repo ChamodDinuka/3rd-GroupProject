@@ -28,10 +28,10 @@ class Add_place extends Component{
       }
       static defaultProps = {
         center: {
-          lat: 59.95,
-          lng: 30.33
+          lat: 7.262315,
+          lng: 80.477027
         },
-        zoom: 11
+        zoom: 8
       };
       componentDidMount(){
         console.log(this.state.places.length)
@@ -344,11 +344,8 @@ class Add_place extends Component{
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          />
+          <i class="fa fa-map-marker fa-2x" aria-hidden="true" lat={80.955413} lng={30.337844} text="My Marker" ></i>
+          
         </GoogleMapReact></div>
                 <React.Fragment>
       
