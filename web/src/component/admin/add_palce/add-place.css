@@ -33,3 +33,6 @@ input#exampleFormControlFile {
     width: 293px;
     margin-top: 5px;
 }
+.fa-map-marker:before {
+    color: red;
+}

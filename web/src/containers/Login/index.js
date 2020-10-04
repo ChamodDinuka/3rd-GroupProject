@@ -12,14 +12,37 @@ class Login extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			redirect: null
+			redirect: null,
+			tourist_mail:[],
+			user_mail:[]
 		};
 
 		
 	}
+	componentDidMount(){
+		var db=firebase.firestore()
+		db.collection("tourist").get().then(function(querySnapshot) {
+			querySnapshot.forEach(function(doc) {
+				// doc.data() is never undefined for query doc snapshots
+				this.setState({
+					tourist_mail:[...this.state.tourist_mail,doc.data().email]
+				})
+					
+			}.bind(this));
+		}.bind(this));
+		db.collection("user").get().then(function(querySnapshot) {
+			querySnapshot.forEach(function(doc) {
+				// doc.data() is never undefined for query doc snapshots
+				this.setState({
+					user_mail:[...this.state.user_mail,doc.data().email]
+				})
+					
+			}.bind(this));
+		}.bind(this));
+		
+	}
 
 	updateEmail=(e)=> {
-		
 		console.log(e.target.value);
 		this.setState({
 			email: e.target.value
@@ -53,7 +76,15 @@ class Login extends Component {
 		 firebase
 		.auth()
 		.signInWithEmailAndPassword(this.state.email, this.state.password)
-		.then(() => this.setState({ redirect: '#' })) 
+		.then(() => 
+		this.state.tourist_mail.map((mail,i)=>{
+			if(this.state.email===mail){
+				this.setState({ 
+					redirect: './tourist' 
+				})
+			}
+		})
+		) 
 		.catch((error) => this.setState({ errorMessage: error.message }));
 			 	
 	}

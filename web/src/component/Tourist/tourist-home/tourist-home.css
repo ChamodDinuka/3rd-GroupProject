@@ -1,0 +1,26 @@
+.home{
+    background-color: aliceblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: black;
+}
+.action {
+    float: right;
+}
+.home-card {
+    display: flex;
+    margin-top: 5px;
+}
+.home-body {
+    width: 100%;
+}
+button#tourist {
+    width: 40px;
+    position: fixed;
+    margin-top: 35%;
+    margin-left: 80%;
+}
