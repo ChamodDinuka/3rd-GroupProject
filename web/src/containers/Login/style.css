@@ -56,12 +56,12 @@
   }
   
 .login button[type='submit'] {
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: #4682B4;
     color: #fff;
     font-size: 25px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     width: 100%;
     border-radius: 5px;

@@ -90,7 +90,12 @@ class Login extends Component {
 				
 		
 				</form>
+				<ul>
+				<Link to="/resetpassword" style={{ color: '#4682B4', padding: '10px 10px' }}>Forgot password?</Link>
+				</ul>
+				<ul>
 				<Link to="/register" style={{ color: '#4682B4', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
+				</ul>
 			</div>
 		);
 	}
