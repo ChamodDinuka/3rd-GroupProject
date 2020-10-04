@@ -1,8 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, useCallback } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.css';
-import firebase from 'firebase';
+import firebase, { app } from 'firebase';
 import DropdownDate from 'react-dropdown-date';
+import {withRouter} from 'react-router';
+
+const TourGuideRegister = ({history}) => {
+	const handleTourGuideRegister = useCallback(async event =>{
+		event.preventDefault();
+		const{email,password} = event.target.elements;
+		try{
+			await app
+			.auth()
+			.createUserWithEmailAndPassword(email.value,password.value);
+			history.push("/");
+		}catch(error){
+			alert(error);
+		}
+	
+},[history]);
 
 const formatDate = (date) => {	
     var d = new Date(date),
@@ -106,7 +122,7 @@ class TourGuideRegister extends Component {
 		}
 		return (
 			<div className="tourguideregister">
-				<form onSubmit={this.displayLogin}>
+				<form onSubmit={handleTourGuideRegister}>
 				<Link to="/"><img class="logo" src="/images/logo.png"/></Link>
 					<h2>Tour Guide</h2>
 
@@ -142,6 +158,7 @@ class TourGuideRegister extends Component {
 							placeholder="NIC"
 							name="nic"
 							onChange={this.updateName}
+							
 						/>
 					</div>
 
@@ -232,8 +249,10 @@ class TourGuideRegister extends Component {
 				<Link to="/login" style={{ color: '#4169e1', padding: '10px 10px' }}>Already have an account? Sign in</Link>
 				
             </div>
-		);
-	}
-}
+	);
+	};
 
-export default TourGuideRegister;
+};
+}
+export default withRouter (TourGuideRegister)
+

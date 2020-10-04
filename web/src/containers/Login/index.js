@@ -1,9 +1,26 @@
-import React, { Component } from 'react';
+
+import React, { Component, useCallback } from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import './style.css'
 import firebase from 'firebase';
+import fire from '../../firebase';
+import {withRouter} from 'react-router';
 
-  
+const Login = ({history}) => {
+	const handleLogin = useCallback(async event =>{
+		event.preventDefault();
+		const{email,password} = event.target.elements;
+		try{
+			await fire
+			.auth()
+			.createUserWithEmailAndPassword(email.value,password.value);
+			history.push("/");
+		}catch(error){
+			alert(error);
+		}
+	
+},[history]);
+
 
 class Login extends Component {
 	constructor(props) {
@@ -53,10 +70,11 @@ class Login extends Component {
 		 firebase
 		.auth()
 		.signInWithEmailAndPassword(this.state.email, this.state.password)
-		.then(() => this.setState({ redirect: '#' })) 
-		.catch((error) => this.setState({ errorMessage: error.message }));
+		.then(() => this.setState({ redirect: 'GuideProfile' })) 
+		.catch((error) => {console.log("Error: "+error.toString())});
 			 	
 	}
+	
 
 	render() {
 		if (this.state.redirect) {
@@ -64,7 +82,7 @@ class Login extends Component {
 		}
 		return (
 			<div className="login">
-				<form onSubmit={this.displayLogin}>
+				<form onSubmit={handleLogin}>
 				<img class="logo" src="/images/logo.png"/>
 					<h2>Login</h2>
                     
@@ -96,5 +114,6 @@ class Login extends Component {
 		);
 	}
 }
+}
 
-export default Login;
+export default withRouter(Login)
