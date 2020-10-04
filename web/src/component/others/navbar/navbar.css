@@ -1,0 +1,6 @@
+header .nav-item {
+    padding: 0.5em;
+}
+header .nav-item:last-child {
+    padding-right: .5em;
+}
