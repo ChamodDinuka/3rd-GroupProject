@@ -3,6 +3,7 @@ import './dashboard.css';
 import {Bar,Line,Pie,Chart,ctx} from 'react-chartjs-2'
 import  firebase from '../../../firebase'
 import {Col,Row} from 'react-bootstrap'
+const functions=firebase.functions(); 
 
 class Dashboard extends Component{
     constructor(props){
@@ -33,6 +34,24 @@ class Dashboard extends Component{
 
 }]}
 }}
+addUser=(e)=>{
+    e.preventDefault();
+    console.log(document.getElementById("new-email").value)
+    const new_email=document.getElementById("new-email").value;
+    const helloWorld=functions.httpsCallable("helloWorld");
+    helloWorld({email:new_email}).then(result=>{
+        console.log(result);
+    })
+}
+deleteUser=(e)=>{
+    e.preventDefault();
+    
+    const new_email=document.getElementById("new-email").value;
+    const deleteUser=functions.httpsCallable("deleteUser");
+    deleteUser({email:new_email}).then(result=>{
+        console.log(result);
+    })
+}
    render(){ 
     
         return(
@@ -49,6 +68,11 @@ class Dashboard extends Component{
                 <Bar  data={this.state.package} />
                 </Col>
                 </Row>
+                </div>
+                <div className="add">
+                    <input type="email" id="new-email"/>
+                    <button type="submit" onClick={this.addUser}>submit</button>
+                    <button type="submit" onClick={this.deleteUser}>delelte</button>
                 </div>
             </div>
            
