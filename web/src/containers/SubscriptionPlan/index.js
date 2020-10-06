@@ -10,7 +10,8 @@ import Subplans from '../../components/Subplans'
 const SubscriptionPlan = (props) => {
   return(
     <div>
-            <Subplans/>
+      <Subplans/>
+            
     </div>
    )
 
