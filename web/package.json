@@ -7,10 +7,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.2",
     "chart.js": "^2.9.3",
     "dotenv": "^8.2.0",
-    "firebase": "^7.17.1",
+    "firebase": "^7.22.1",
     "font-awesome": "^4.7.0",
     "google-map-react": "^2.0.8",
     "react": "^16.13.1",
@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-simple-chatbot": "^0.6.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
