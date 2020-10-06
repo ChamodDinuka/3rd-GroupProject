@@ -34,24 +34,6 @@ class Dashboard extends Component{
 
 }]}
 }}
-addUser=(e)=>{
-    e.preventDefault();
-    console.log(document.getElementById("new-email").value)
-    const new_email=document.getElementById("new-email").value;
-    const helloWorld=functions.httpsCallable("helloWorld");
-    helloWorld({email:new_email}).then(result=>{
-        console.log(result);
-    })
-}
-deleteUser=(e)=>{
-    e.preventDefault();
-    
-    const new_email=document.getElementById("new-email").value;
-    const deleteUser=functions.httpsCallable("deleteUser");
-    deleteUser({email:new_email}).then(result=>{
-        console.log(result);
-    })
-}
    render(){ 
     
         return(
@@ -68,11 +50,6 @@ deleteUser=(e)=>{
                 <Bar  data={this.state.package} />
                 </Col>
                 </Row>
-                </div>
-                <div className="add">
-                    <input type="email" id="new-email"/>
-                    <button type="submit" onClick={this.addUser}>submit</button>
-                    <button type="submit" onClick={this.deleteUser}>delelte</button>
                 </div>
             </div>
            

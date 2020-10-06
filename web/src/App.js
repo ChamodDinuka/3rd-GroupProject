@@ -25,6 +25,7 @@ import Chatbot from './component/others/chatbot/chatbot'
 import Add_palce from './component/admin/add_palce/add-place'
 import Tourist_home from './component/Tourist/tourist-home/tourist-home'
 import Tourist_profile from './component/Tourist/profile/tourist-profile'
+import Guide_home from './component/guide/guide-home/guide-home'
 
 
 
@@ -58,6 +59,7 @@ function App() {
         <Route path="/tourist" exact component={Tourist_home}/>
         <Route path="/tourist/profile" exact component={Tourist_profile}/>
         <Route path="/chat" exact component={Chatbot}/>
+        <Route path="/guide" exact component={Guide_home}/>
         <Route path="/register" component ={Register}/>
         <Route path="/login" component ={Login}/>
         <Route path="/tourguideregister" component ={TourGuideRegister}/>

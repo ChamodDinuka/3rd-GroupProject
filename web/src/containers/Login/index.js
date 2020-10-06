@@ -85,8 +85,15 @@ class Login extends Component {
 					redirect: './tourist' 
 				})
 			}
+		}),
+		this.state.user_mail.map((mail,i)=>{
+			if(this.state.email===mail){
+				this.setState({ 
+					redirect: './guide' 
+				})
+			}
 		})
-		) 
+		)
 		.catch((error) => this.setState({ errorMessage: error.message }));
 			 	
 	}
