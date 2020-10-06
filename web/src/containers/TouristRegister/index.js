@@ -108,7 +108,6 @@ class TouristRegister extends Component {
 		return (
 			<div className="touristregister">
 				<form onSubmit={this.displayLogin}>
-				<Link to="/"><img class="logo" src="/images/logo.png"/></Link>
 					<h2>Tourist</h2>
 
 					<Link to="/SubscriptionPlan" ><button  type="submit" onClick={this.props.handleClick}>{this.props.label}Select Package</button></Link>
