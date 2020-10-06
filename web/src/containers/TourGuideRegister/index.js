@@ -27,9 +27,10 @@ class TourGuideRegister extends Component {
 
 		this.state = {
 			fullname: '',
-			availability:'',
+			availability:'inactive',
 			date: null, selectedDate: '1997-07-18',
 			nic:'',
+			file:'',
 			language:'',
 			address:'',
 			telephone:'',
@@ -84,6 +85,34 @@ class TourGuideRegister extends Component {
 			email: e.target.value
 		});
 	}
+	onFileChange=(e)=>{
+		const file=e.target.files[0]
+      const storage=firebase.storage()
+      const uploadTask = storage.ref(`/file/${file.name}`).put(file)
+      //initiates the firebase side uploading 
+      uploadTask.on('state_changed', 
+      (snapShot) => {
+        
+        //takes a snap shot of the process as it is happening
+        console.log(snapShot)
+      }, (err) => {
+        //catches the errors
+        console.log(err)
+      }, () => {
+        // gets the functions from storage refences the image storage in firebase by the children
+        // gets the download url then sets the image from firebase as the value for the imgUrl key:
+        storage.ref('file').child(file.name).getDownloadURL()
+         .then(fireBaseUrl => {
+			console.log(fireBaseUrl)
+           this.setState({
+             file:fireBaseUrl
+           })
+		 })
+		 
+		 console.log(this.state.file)
+         
+      })
+	}
 	
 	updatePassword=(e)=> {
 		this.setState({
@@ -125,17 +154,17 @@ class TourGuideRegister extends Component {
 				await db.collection("user").add({
 					name: this.state.fullname,
 					nic:this.state.nic,
+					availability_status:this.state.availability,
 					email:this.state.email,
 					telephone:this.state.telephone,
 					language:this.state.language,
 					address:this.state.address,
+					file:this.state.file,
 					experience:this.state.experience
 				})
 				.then(function(docRef) {
 					console.log("Document written with ID: ", docRef.id);
-					this.setState({
-						redirect: 'login'
-					})
+					
 				})
 				.catch(function(error) {
 					console.error("Error adding document: ", error);
@@ -146,7 +175,9 @@ class TourGuideRegister extends Component {
 				console.log(error);
 
 			});
-			
+			this.setState({
+				redirect: 'login'
+			})
 	
 	}
 
