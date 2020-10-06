@@ -1,15 +1,13 @@
 .tourguideregister {
-  align-items: center;
-  justify-content: center;
-  padding: 20px 500px;
+  display: flex;
+  flex-direction: column;
 }
 
-.tourguideregister img{
-  height: 60px;
-  padding: 5px 95px;
-  width: 100%;
+.tourguideregister {
   align-items: center;
 }
+
+
 
 .tourguideregister h2 {
   font-size: 30px;
@@ -26,7 +24,7 @@
   margin-bottom: 20px;
   border: none;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 60px;
   border-radius: 5px;
 }
 
@@ -43,7 +41,7 @@
   margin-bottom: 20px;
   border: none;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 60px;
   border-radius: 5px;
 }
 
@@ -77,17 +75,36 @@
   }
 
 .tourguideregister select:focus{
-      outline: none;      
-      box-shadow: 0 0 0 2px #4682B4;
+    outline: none;      
+    box-shadow: 0 0 0 2px #4682B4;
   }
+
+.tourguideregister input[type='file'] {
+    background-color: #e6e6e6;
+    font-size: 16px;
+    text-align: center;
+    color: gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.tourguideregister input[type=file]:focus{
+  outline: none;      
+  box-shadow: 0 0 0 2px #4682B4;
+}
+
     
 .tourguideregister button[type='submit'] {
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: #4682B4;
     color: #fff;
     font-size: 25px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     width: 100%;
     border-radius: 5px;
