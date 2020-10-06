@@ -27,3 +27,6 @@ button#tourist {
 audio.react-audio-player {
     margin-left: 15%;
 }
+div#video {
+    padding: 0;
+}

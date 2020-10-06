@@ -5,6 +5,7 @@ import './tourist-home.css'
 import firebase from '../../../firebase'
 import Chat from '../../others/chatbot/chatbot'
 import ReactAudioPlayer from 'react-audio-player';
+import ReactPlayer from 'react-player'
 
 class Tourist_home extends Component{
 
@@ -12,7 +13,9 @@ class Tourist_home extends Component{
         super(props);
         this.state={
             show:false,
+            show_video:false,
             audio_num:'',
+            video_num:'',
             place:[],
             description:[],
             img:[],
@@ -53,9 +56,22 @@ class Tourist_home extends Component{
         
         
     }
+    playVideo=(i)=>{
+        this.setState({
+            show_video:true,
+            video_num:i
+        })
+        
+        
+    }
     handleClose=()=>{
         this.setState({
             show:false
+        })
+    }
+    handleCloseVideo=()=>{
+        this.setState({
+            show_video:false
         })
     }
 
@@ -94,7 +110,7 @@ class Tourist_home extends Component{
                     <p>{this.state.description[i]}</p>
                         <div className="action">
                         <Button variant="danger" onClick={()=>this.playAudio(i)}>Audio</Button>{' '}
-                        <Button variant="warning">Video</Button>{' '}
+                        <Button variant="warning" onClick={()=>this.playVideo(i)}>Video</Button>{' '}
                         </div>
                         
                         </div>
@@ -116,6 +132,18 @@ class Tourist_home extends Component{
             autoPlay
             controls
         />
+        </Modal.Body>
+        
+      </Modal>
+
+      <Modal id="video_" show={this.state.show_video} onHide={this.handleCloseVideo}size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Video Player</Modal.Title>
+        </Modal.Header>
+        <Modal.Body id="video">
+        <ReactPlayer width='798px' url={this.state.video[this.state.video_num]} />
         </Modal.Body>
         
       </Modal>
