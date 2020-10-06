@@ -1,13 +1,10 @@
 .login {
-  align-items: center;
-  justify-content: center;
-  padding: 20px 500px;
-  }
-
-.login img{
-  height: 60px;
-  padding: 5px 95px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+
+}
+.login {
   align-items: center;
   }
   
@@ -16,6 +13,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #4682B4;
+  margin-top: 90px;
   margin-bottom: 10px;
   }
 
@@ -30,7 +28,7 @@
   margin-bottom: 20px;
   border: none;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 80px;
   border-radius: 5px;
  
 }
@@ -42,7 +40,7 @@
 
 .login input[type='password'] {
   background-color: #e6e6e6;
-  padding: 10px 20px;
+  padding: 10px 80px;
   color: #000000;
   font-size: 16px;
   margin-bottom: 20px;
@@ -58,12 +56,12 @@
   }
   
 .login button[type='submit'] {
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: #4682B4;
     color: #fff;
     font-size: 25px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     width: 100%;
     border-radius: 5px;

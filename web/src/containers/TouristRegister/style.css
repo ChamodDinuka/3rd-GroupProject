@@ -1,15 +1,12 @@
 
 .touristregister {
-  align-items: center;
-  justify-content: center;
-  padding: 20px 500px;
+  display: flex;
+  flex-direction: column;
 }
 
-.touristregister img{
-  height: 60px;
-  padding: 5px 95px;
-  width: 100%;
+.touristregister {
   align-items: center;
+  
 }
 
 .touristregister h2 {
@@ -17,6 +14,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #4682B4;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -27,7 +25,7 @@
   margin-bottom: 20px;
   border: none;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 80px;
   border-radius: 5px;
 }
 
@@ -38,7 +36,7 @@
 
 .touristregister input[type='password'] {
   background-color: #e6e6e6;
-  padding: 10px 20px;
+  padding: 10px 80px;
   color: #000000;
   font-size: 16px;
   margin-bottom: 20px;
@@ -81,11 +79,11 @@
   }
 
 .touristregister button[type='submit'] {
-    padding: 10px 20px;
+    padding: 7px 20px;
     background-color: #4682B4;
     color: #fff;
     font-size: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     width: 100%;
     border-radius: 5px;
