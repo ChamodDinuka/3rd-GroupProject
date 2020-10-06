@@ -93,6 +93,7 @@ class TourGuideRegister extends Component {
 
 	displayLogin=(e)=> {
 		e.preventDefault();
+		var db=firebase.firestore()
 		if( this.state.fullname === "" ) {
             alert( "Please provide your name!" );
             
