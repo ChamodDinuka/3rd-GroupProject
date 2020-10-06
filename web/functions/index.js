@@ -7,21 +7,11 @@ admin.initializeApp();
  exports.helloWorld = functions.https.onCall(async (data, context) => {
    
     await admin.auth().createUser({
-      email: "cloud3@gmail.com",
+      email: data.email,
       
-      password: "wer@123",
+      password: data.password,
     }).catch(function(error) {
       throw new functions.https.HttpsError('unknown', 'User auth creation failed.');
   });
  })
- exports.deleteUser = functions.https.onCall(async (data, context) => {
-   
-  await admin.auth().deleteUser({
-    email: "cloud2@gmail.com",
-    
-    password: "wer@123",
-  }).catch(function(error) {
-    throw new functions.https.HttpsError('unknown', 'User auth creation failed.');
-});
-})
 
