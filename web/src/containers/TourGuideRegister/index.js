@@ -23,12 +23,12 @@ class TourGuideRegister extends Component {
 
 		this.state = {
 			fullname: '',
+			availability:'',
 			date: null, selectedDate: '1997-07-18',
 			nic:'',
-			district:'',
-			postalid:'',
+			language:'',
 			address:'',
-			tripnumber:'',
+			telephone:'',
 			experience:'',
 			expertin:'',
 			email: '',
@@ -44,6 +44,34 @@ class TourGuideRegister extends Component {
 		console.log(e.target.value)
 		this.setState({
 			fullname: e.target.value
+		});
+	}
+	updateNic=(e)=> {
+		console.log(e.target.value)
+		this.setState({
+			nic: e.target.value
+		});
+	}
+	updateAddress=(e)=> {
+		console.log(e.target.value)
+		this.setState({
+			address: e.target.value
+		});
+	}
+	updateNumber=(e)=>{
+		this.setState({
+			telephone: e.target.value
+		});
+	}
+	updateExperience=(e)=> {
+		console.log(e.target.value)
+		this.setState({
+			experiences: e.target.value
+		});
+	}
+	updateLanguage=(e)=>{
+		this.setState({
+			language: e.target.value
 		});
 	}
 	updateEmail=(e)=> {
@@ -86,16 +114,33 @@ class TourGuideRegister extends Component {
 		 firebase
 			.auth()
 			.createUserWithEmailAndPassword(this.state.email, this.state.password)
-			.then(() => {
+			.then(async() => {
 				//console.trace("TEST");
-				this.setState({
-					redirect: 'login'
+				await db.collection("user").add({
+					name: this.state.fullname,
+					nic:this.state.nic,
+					email:this.state.email,
+					telephone:this.state.telephone,
+					language:this.state.language,
+					address:this.state.address,
+					experience:this.state.experience
 				})
+				.then(function(docRef) {
+					console.log("Document written with ID: ", docRef.id);
+					this.setState({
+						redirect: 'login'
+					})
+				})
+				.catch(function(error) {
+					console.error("Error adding document: ", error);
+				});
+				
 			})
 			.catch((error) => {
 				console.log(error);
 
 			});
+			
 	
 	}
 
@@ -107,7 +152,7 @@ class TourGuideRegister extends Component {
 		return (
 			<div className="tourguideregister">
 				<form onSubmit={this.displayLogin}>
-				<img class="logo" src="/images/logo.png"/>
+				
 					<h2>Tour Guide</h2>
 
 					<div className="name">
@@ -141,58 +186,46 @@ class TourGuideRegister extends Component {
 							type="text"
 							placeholder="NIC"
 							name="nic"
-							onChange={this.updateName}
+							onChange={this.updateNic}
 						/>
 					</div>
 
-					<div className="district">
-						<input
-							type="text"
-							placeholder="District"
-							name="district"
-							onChange={this.updateName}
-						/>
-					</div>
+					
 
-					<div className="postalid">
-						<input
-							type="text"
-							placeholder="Postal ID"
-							name="postalid"
-							onChange={this.updateName}
-						/>
-					</div>
+					
 
 					<div className="address">
 						<input
 							type="text"
 							placeholder="Address"
 							name="address"
-							onChange={this.updateName}
+							onChange={this.updateAddress}
 						/>
 					</div>
 
-					<div className="tripnumber">
+					<div className="number">
 						<input
 							type="text"
-							placeholder="Trip Number"
-							name="tripnumber"
-							onChange={this.updateName}
+							placeholder="Phone Number"
+							name="number"
+							onChange={this.updateNumber}
 						/>
 					</div>
+
+					
 
 					<div className="experience">
 						<input
 							type="text"
 							placeholder="Experience"
 							name="experience"
-							onChange={this.updateName}
+							onChange={this.updateExperience}
 						/>
 					</div>
 
 					<label>
                         Expert In
-                        <select value={this.state.value} onChange={this.handleChange}>
+                        <select value={this.state.value} onChange={this.updateLanguage}>
             				<option value="english">English</option>
             				<option value="hindi">Hindi</option>
             				<option value="chinese">Chinese</option>
