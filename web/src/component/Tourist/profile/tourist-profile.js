@@ -7,32 +7,108 @@ class Tourist_profile extends Component{
     render(){
         return(
             <><Navbar/>
-            <div className="tourist-profile">
-                <div className="details">
-                    <p id="instruction"><b>Steps To Connect A Tour Giude</b> </p>
-                    <ul id="instruction">
-                        <li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  Check available tour guides for your package from the right hand side list</li><br/>
-                        <li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  See profile of tour guide if you want </li><br/>
-                        <li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  Send a request to the guide by pressing request button</li><br/>
-                        <li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  Wait untill he confirm your request. You will recieve notification if he accept or reject</li><br/>
-                        <li><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  You can request for multiple guides in case you have to travel with the guide who accept first</li><br/>
-                    </ul>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="/images/online4.jpg"></img>
+                        <h5>Check availability </h5>
+                    </div>
                 </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="/images/profile3.jpg"></img>
+                        <h5>See tour guide profiles</h5>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="/images/request2.jpg"></img>
+                        <h5>Send request to tour guides</h5>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="/images/waiti2.jpg"></img>
+                        <h5>Wait until confirmation of request</h5>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="/images/multiple.jpg"></img>
+                        <h5>Request for multiple guides</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div className="tourist-profile">
+
                 <div className="guide-view">
-                    <ul>
-                        <li><i class="fa fa-user-circle" aria-hidden="true"></i> kalana 
-                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <Button id="guide" variant="success">Request</Button>
-                        </li>
-                    </ul>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-user-circle" aria-hidden="true">   Kalana Mendis</i> </td>
+                                <td><span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td class="float=right">
+                                    <Button id="guide" variant="success">Request</Button>
+                                    <Button id="guide2" variant="success">View profile</Button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-user-circle" aria-hidden="true">   Shenal peris</i> </td>
+                                <td><span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td class="float=right">
+                                    <Button id="guide" variant="success">Request</Button>
+                                    <Button id="guide2" variant="success">View profile</Button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-user-circle" aria-hidden="true">   Tisara Perera</i> </td>
+                                <td><span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td class="float=right">
+                                    <Button id="guide" variant="success">Request</Button>
+                                    <Button id="guide2" variant="success">View profile</Button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-user-circle" aria-hidden="true">   Kasun Chamara</i> </td>
+                                <td><span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+                                <td class="float=right">
+                                    <Button id="guide" variant="success">Request</Button>
+                                    <Button id="guide2" variant="success">View profile</Button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
             </>
         )
     }
 }
+
 export default Tourist_profile

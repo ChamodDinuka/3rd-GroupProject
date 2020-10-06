@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+
+import React, { Component} from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import './style.css'
 import firebase from 'firebase';
 
-  
+
+
 
 class Login extends Component {
 	constructor(props) {
@@ -88,6 +90,7 @@ class Login extends Component {
 		.catch((error) => this.setState({ errorMessage: error.message }));
 			 	
 	}
+	
 
 	render() {
 		if (this.state.redirect) {
@@ -96,7 +99,6 @@ class Login extends Component {
 		return (
 			<div className="login">
 				<form onSubmit={this.displayLogin}>
-				<img class="logo" src="/images/logo.png"/>
 					<h2>Login</h2>
                     
 					<div className="email">
@@ -122,10 +124,16 @@ class Login extends Component {
 				
 		
 				</form>
+				<ul>
+				<Link to="/resetpassword" style={{ color: '#4682B4', padding: '10px 10px' }}>Forgot password?</Link>
+				</ul>
+				<ul>
 				<Link to="/register" style={{ color: '#4682B4', padding: '10px 10px' }}>Don't have an account? Sign up</Link>
+				</ul>
 			</div>
 		);
 	}
 }
+
 
 export default Login;

@@ -68,6 +68,8 @@ class TouristRegister extends Component {
 
 			return false;
 		}else{
+		
+			
 
 		firebase
 		.auth()
@@ -119,6 +121,7 @@ class TouristRegister extends Component {
 							name="fullname"
 							value={this.state.fullname}
 							onChange={this.updateName}
+							
 						/>
 					</div>
 

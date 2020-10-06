@@ -1,8 +1,13 @@
 .register {
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
     align-items: center;
-    justify-content: center;
-    padding: 20px 500px;
-  }
+  
+}
+ 
  
 .register button[type='submit'] {
     padding: 10px 20px;

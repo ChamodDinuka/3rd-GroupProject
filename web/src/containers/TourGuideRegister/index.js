@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.css';
 import firebase from 'firebase';
 import DropdownDate from 'react-dropdown-date';
+
+
+
+	
 
 const formatDate = (date) => {	
     var d = new Date(date),
@@ -31,6 +35,7 @@ class TourGuideRegister extends Component {
 			telephone:'',
 			experience:'',
 			expertin:'',
+			submitreports:'',
 			email: '',
 			password: '',
 			password1: '',
@@ -234,6 +239,15 @@ class TourGuideRegister extends Component {
           				</select>
         			</label>
 
+					<label>
+                        Submit Reports
+						<input 
+							type="file"
+							name="submitreports"
+							onChange={this.onFileChange} 
+					    />
+                    </label>
+
 					<div className="email">
 						<input
 							type="text"
@@ -266,8 +280,10 @@ class TourGuideRegister extends Component {
 				<Link to="/login" style={{ color: '#4169e1', padding: '10px 10px' }}>Already have an account? Sign in</Link>
 				
             </div>
-		);
-	}
-}
+	);
+	
 
-export default TourGuideRegister;
+}
+}
+export default TourGuideRegister
+

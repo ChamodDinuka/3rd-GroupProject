@@ -39,10 +39,11 @@ const Footer = (props) => {
                             <h4 class="text-light">Follow Us</h4>
                             <p class="text-muted">Let us be social</p>
                             <div class="column text-light">
-                                <i class="fab fa-facebook-f"></i>
-                                <i class="fab fa-instagram"></i>
-                                <i class="fab fa-twitter"></i>
-                                <i class="fab fa-youtube"></i>
+                                
+                            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                <i class="fa fa-youtube-play" aria-hidden="true"></i>
                             </div>
                             </div>
                  </div>
