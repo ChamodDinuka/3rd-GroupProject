@@ -24,4 +24,6 @@ button#tourist {
     margin-top: 35%;
     margin-left: 80%;
 }
-
+audio.react-audio-player {
+    margin-left: 15%;
+}
