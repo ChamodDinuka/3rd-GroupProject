@@ -1,16 +1,18 @@
 import React,{Component} from 'react'
-import {Card,Image,Col,Button,Row,OverlayTrigger,Popover} from 'react-bootstrap'
+import {Card,Image,Col,Button,Row,OverlayTrigger,Popover,Modal} from 'react-bootstrap'
 import Navbar from '../../others/navbar/navbar'
 import './tourist-home.css'
 import firebase from '../../../firebase'
 import Chat from '../../others/chatbot/chatbot'
+import ReactAudioPlayer from 'react-audio-player';
 
 class Tourist_home extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            
+            show:false,
+            audio_num:'',
             place:[],
             description:[],
             img:[],
@@ -38,13 +40,28 @@ class Tourist_home extends Component{
                
                 // doc.data() is never undefined for query doc snapshots
             }.bind(this));
-           
+           console.log(this.state.audio)
          
         }.bind(this));
         console.log(this.state.img)
     }
+    playAudio=(i)=>{
+        this.setState({
+            show:true,
+            audio_num:i
+        })
+        
+        
+    }
+    handleClose=()=>{
+        this.setState({
+            show:false
+        })
+    }
 
     render(){
+        
+        
         return(
             <><Navbar/>
             <div className="home">
@@ -76,7 +93,7 @@ class Tourist_home extends Component{
                     <h5>{data[i]}</h5>
                     <p>{this.state.description[i]}</p>
                         <div className="action">
-                        <Button variant="danger">Audio</Button>{' '}
+                        <Button variant="danger" onClick={()=>this.playAudio(i)}>Audio</Button>{' '}
                         <Button variant="warning">Video</Button>{' '}
                         </div>
                         
@@ -89,6 +106,19 @@ class Tourist_home extends Component{
                 })}
                 
             </div>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Audio Player</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <ReactAudioPlayer
+          src={this.state.audio[this.state.audio_num]}
+            autoPlay
+            controls
+        />
+        </Modal.Body>
+        
+      </Modal>
             </>
         );
     }
