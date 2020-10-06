@@ -121,6 +121,7 @@ class TouristRegister extends Component {
 							name="fullname"
 							value={this.state.fullname}
 							onChange={this.updateName}
+							
 						/>
 					</div>
 

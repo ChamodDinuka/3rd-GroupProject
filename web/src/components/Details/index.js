@@ -69,7 +69,7 @@ const Details = (props) => {
                         </div>
                     </div>
                     <h1>Join us today and start an unforgettable adventure</h1>
-                    <a href="#" class="btn btn-primary px-5 py-2 mb-5">Let's get started</a>
+                    <a href="/register" class="btn btn-primary px-5 py-2 mb-5">Let's get started</a>
                 </div>
             </section>
 

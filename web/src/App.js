@@ -6,7 +6,6 @@ import Register from './containers/Register';
 import TourGuideRegister from './containers/TourGuideRegister';
 import TouristRegister from './containers/TouristRegister';
 import ContactUs from './containers/ContactUs';
-
 import Home from './containers/Home';
 import {BrowserRouter , Router, Switch, Route} from 'react-router-dom';
 import Dashboard from './component/admin/dashboard/dashboard';
@@ -76,13 +75,18 @@ function App() {
       </Switch>
         
       </div>
-    
-    </BrowserRouter>
-    
-  );
-
-}
-
+      
+      
+      </BrowserRouter>
+      
+      
+    );
+      }
+  
+  
+  
+  
+  
 
   
 

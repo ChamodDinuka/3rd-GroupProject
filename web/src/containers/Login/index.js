@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+
+import React, { Component} from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import './style.css'
 import firebase from 'firebase';
 
-  
+
+
 
 class Login extends Component {
 	constructor(props) {
@@ -88,6 +90,7 @@ class Login extends Component {
 		.catch((error) => this.setState({ errorMessage: error.message }));
 			 	
 	}
+	
 
 	render() {
 		if (this.state.redirect) {
@@ -131,5 +134,6 @@ class Login extends Component {
 		);
 	}
 }
+
 
 export default Login;
