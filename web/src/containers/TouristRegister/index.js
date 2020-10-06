@@ -68,6 +68,8 @@ class TouristRegister extends Component {
 
 			return false;
 		}else{
+		
+			
 
 		firebase
 		.auth()
