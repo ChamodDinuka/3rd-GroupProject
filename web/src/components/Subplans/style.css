@@ -1,5 +1,5 @@
 .B-box{
-  width:90%;
+  width:70%;
   padding:20px;
   margin:100px auto;
   display:flex;
@@ -7,8 +7,8 @@
  
 }
 .box{
-  width:250px;
-  height:300px;
+  width:200px;
+  height:250px;
   background: orange;
   float:left;
   margin:0px 10px;
