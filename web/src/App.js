@@ -3,7 +3,6 @@ import './App.css';
 import AboutUs from './containers/AboutUs';
 import Login from './containers/Login';
 import Register from './containers/Register';
-import GuideProfile from './containers/GuideProfile';
 import TourGuideRegister from './containers/TourGuideRegister';
 import TouristRegister from './containers/TouristRegister';
 import ContactUs from './containers/ContactUs';
@@ -22,9 +21,10 @@ import SubscriptionPlan from './containers/SubscriptionPlan';
 import BronzePlan from './containers/BronzePlan';
 import GoldPlan from './containers/GoldPlan';
 import SilverPlan from './containers/SilverPlan';
-import Chatbot from './component/others/chatbot/chatbot';
-import Add_palce from './component/admin/add_palce/add-place';
-import { AuthProvider } from './Auth';
+import Chatbot from './component/others/chatbot/chatbot'
+import Add_palce from './component/admin/add_palce/add-place'
+import Tourist_home from './component/Tourist/tourist-home/tourist-home'
+import Tourist_profile from './component/Tourist/profile/tourist-profile'
 
 
 
@@ -33,58 +33,57 @@ import { AuthProvider } from './Auth';
 
 
 
-
-function App () {
-    
-    return (
-      <AuthProvider>
-      <BrowserRouter>
-        <div className="App">
-        <Route path="/report" exact component={Reprot}/>
-        <Switch>
-          
-          <Route path="/admin"
-           render={({ match: { url } }) => (
-            <>
-             <Navbar2 sticky="top"/>
-             <Sidebar/>
-             <Route path={`${url}/`} component={Dashboard} exact />
-             <Route path={`${url}/packages`}  component={Packages} exact  />
-             <Route path={`${url}/addPlace`}  component={Add_palce} exact/>
-            </>
-           )}
-          />
-          
-          </Switch>
-    
-          <Route path="/" exact component ={Home}/>
-          <Route path="/chat" exact component={Chatbot}/>
-          <Route path="/register" component ={Register}/>
-          <Route path="/login"  component ={Login}/>
-          <Route path="/tourguideregister" component ={TourGuideRegister}/>
-          <Route path="/touristregister" component ={TouristRegister}/>
-          <Route path="/aboutUs" component ={AboutUs}/>
-          <Route path="/contactus" component ={ContactUs}/>
-          <Route path="/SubscriptionPlan" component ={SubscriptionPlan}/>
-          <Route path="/BronzePlan" component ={BronzePlan}/>
-          <Route path="/GoldPlan" component ={GoldPlan}/>
-          <Route path="/SilverPlan" component ={SilverPlan}/>
-          <Route path="/GuideProfile" component ={GuideProfile}/>
-          
-          
-          <Switch>
-          <Route exact path="/admin" />
-          
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="App">
+      <Route path="/report" exact component={Reprot}/>
+      <Switch>
+        
+        <Route path="/admin"
+         render={({ match: { url } }) => (
+          <>
+           <Navbar2 sticky="top"/>
+           <Sidebar/>
+           <Route path={`${url}/`} component={Dashboard} exact />
+           <Route path={`${url}/packages`}  component={Packages} exact  />
+           <Route path={`${url}/addPlace`}  component={Add_palce} exact/>
+          </>
+         )}
+        />
+        
         </Switch>
-          
-        </div>
+  
+        <Route path="/" exact component ={Home}/>
+        <Route path="/tourist" exact component={Tourist_home}/>
+        <Route path="/tourist/profile" exact component={Tourist_profile}/>
+        <Route path="/chat" exact component={Chatbot}/>
+        <Route path="/register" component ={Register}/>
+        <Route path="/login" component ={Login}/>
+        <Route path="/tourguideregister" component ={TourGuideRegister}/>
+        <Route path="/touristregister" component ={TouristRegister}/>
+        <Route path="/aboutUs" component ={AboutUs}/>
+        <Route path="/contactus" component ={ContactUs}/>
+        <Route path="/SubscriptionPlan" component ={SubscriptionPlan}/>
+        <Route path="/BronzePlan" component ={BronzePlan}/>
+        <Route path="/GoldPlan" component ={GoldPlan}/>
+        <Route path="/SilverPlan" component ={SilverPlan}/>
+        
+        <Switch>
+        <Route exact path="/admin" />
+        
+      </Switch>
+        
+      </div>
+      
       
       </BrowserRouter>
-      </AuthProvider>
+      
       
     );
+      }
   
-  }
+  
   
   
   

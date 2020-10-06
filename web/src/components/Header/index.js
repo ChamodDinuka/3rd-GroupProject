@@ -19,9 +19,7 @@ const Header = (props) => {
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div class="mr-auto"></div>
                         <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#"><button class="btn btn-primary px-5 py-2">Home</button> <span class="sr-only">(current)</span></a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/register"><button class="btn btn-primary px-5 py-2">Sign Up</button></a>
                         </li>

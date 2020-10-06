@@ -1,24 +1,12 @@
-import React, { Component, useCallback } from 'react';
+import React, { Component} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './style.css';
-import firebase, { app } from 'firebase';
+import firebase from 'firebase';
 import DropdownDate from 'react-dropdown-date';
-import {withRouter} from 'react-router';
 
-const TourGuideRegister = ({history}) => {
-	const handleTourGuideRegister = useCallback(async event =>{
-		event.preventDefault();
-		const{email,password} = event.target.elements;
-		try{
-			await app
-			.auth()
-			.createUserWithEmailAndPassword(email.value,password.value);
-			history.push("/");
-		}catch(error){
-			alert(error);
-		}
+
+
 	
-},[history]);
 
 const formatDate = (date) => {	
     var d = new Date(date),
@@ -122,7 +110,7 @@ class TourGuideRegister extends Component {
 		}
 		return (
 			<div className="tourguideregister">
-				<form onSubmit={handleTourGuideRegister}>
+				<form onSubmit={this.displayLogin}>
 				<Link to="/"><img class="logo" src="/images/logo.png"/></Link>
 					<h2>Tour Guide</h2>
 
@@ -250,9 +238,9 @@ class TourGuideRegister extends Component {
 				
             </div>
 	);
-	};
+	
 
-};
 }
-export default withRouter (TourGuideRegister)
+}
+export default TourGuideRegister
 

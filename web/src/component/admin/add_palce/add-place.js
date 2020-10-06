@@ -2,7 +2,10 @@ import React,{Component} from 'react'
 import './add-place.css'
 import {Form,Button,Col,ProgressBar} from 'react-bootstrap'
 import firebase from '../../../firebase'
+import GoogleMapReact from 'google-map-react';
 import { storage } from 'firebase'
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Add_place extends Component{
     constructor(props) {
@@ -23,6 +26,13 @@ class Add_place extends Component{
           image:[],
         }
       }
+      static defaultProps = {
+        center: {
+          lat: 7.262315,
+          lng: 80.477027
+        },
+        zoom: 8
+      };
       componentDidMount(){
         console.log(this.state.places.length)
        
@@ -328,14 +338,21 @@ class Add_place extends Component{
         
         return(
             <div className="Add-place">
+              <div className="map" style={{ height: '150px', width: '100%' }}>
+              <GoogleMapReact
+          bootstrapURLKeys={{ key: "" }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <i class="fa fa-map-marker fa-2x" aria-hidden="true" lat={80.955413} lng={30.337844} text="My Marker" ></i>
+          
+        </GoogleMapReact></div>
                 <React.Fragment>
       
      
 
       
-      {/* 
-        render the form steps and pass required props in
-      */}<Form >
+      <Form >
           <h5 id="add">Package Name</h5>
           <div className="form-body" >
   <Form.Row>

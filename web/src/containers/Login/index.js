@@ -1,25 +1,10 @@
 
-import React, { Component, useCallback } from 'react';
+import React, { Component} from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import './style.css'
 import firebase from 'firebase';
-import fire from '../../firebase';
-import {withRouter} from 'react-router';
 
-const Login = ({history}) => {
-	const handleLogin = useCallback(async event =>{
-		event.preventDefault();
-		const{email,password} = event.target.elements;
-		try{
-			await fire
-			.auth()
-			.createUserWithEmailAndPassword(email.value,password.value);
-			history.push("/");
-		}catch(error){
-			alert(error);
-		}
-	
-},[history]);
+
 
 
 class Login extends Component {
@@ -29,14 +14,37 @@ class Login extends Component {
 		this.state = {
 			email: '',
 			password: '',
-			redirect: null
+			redirect: null,
+			tourist_mail:[],
+			user_mail:[]
 		};
 
 		
 	}
+	componentDidMount(){
+		var db=firebase.firestore()
+		db.collection("tourist").get().then(function(querySnapshot) {
+			querySnapshot.forEach(function(doc) {
+				// doc.data() is never undefined for query doc snapshots
+				this.setState({
+					tourist_mail:[...this.state.tourist_mail,doc.data().email]
+				})
+					
+			}.bind(this));
+		}.bind(this));
+		db.collection("user").get().then(function(querySnapshot) {
+			querySnapshot.forEach(function(doc) {
+				// doc.data() is never undefined for query doc snapshots
+				this.setState({
+					user_mail:[...this.state.user_mail,doc.data().email]
+				})
+					
+			}.bind(this));
+		}.bind(this));
+		
+	}
 
 	updateEmail=(e)=> {
-		
 		console.log(e.target.value);
 		this.setState({
 			email: e.target.value
@@ -70,8 +78,16 @@ class Login extends Component {
 		 firebase
 		.auth()
 		.signInWithEmailAndPassword(this.state.email, this.state.password)
-		.then(() => this.setState({ redirect: 'GuideProfile' })) 
-		.catch((error) => {console.log("Error: "+error.toString())});
+		.then(() => 
+		this.state.tourist_mail.map((mail,i)=>{
+			if(this.state.email===mail){
+				this.setState({ 
+					redirect: './tourist' 
+				})
+			}
+		})
+		) 
+		.catch((error) => this.setState({ errorMessage: error.message }));
 			 	
 	}
 	
@@ -82,7 +98,7 @@ class Login extends Component {
 		}
 		return (
 			<div className="login">
-				<form onSubmit={handleLogin}>
+				<form onSubmit={this.displayLogin}>
 				<img class="logo" src="/images/logo.png"/>
 					<h2>Login</h2>
                     
@@ -114,6 +130,6 @@ class Login extends Component {
 		);
 	}
 }
-}
 
-export default withRouter(Login)
+
+export default Login;
