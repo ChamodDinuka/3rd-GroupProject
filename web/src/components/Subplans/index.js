@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import './Subplanstyle.css'
 import { Link } from 'react-router-dom';
 
 /**
@@ -10,23 +10,46 @@ import { Link } from 'react-router-dom';
 const Subplans = (props) => {
   return(
     <div>
-        <div class="B-box">
-            <div class="box">
-                <div class="package">
-                <Link to="/BronzePlan" ><img src="/images/bronze4.png"></img></Link>
+        <div class="row">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5>Platinum Package </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Price $250</p>
+
+                        <button class="btn btn-primary">More</button>
+                        <button class="btn btn-primary">select</button> 
+                        
+                    </div>
                 </div>
-            </div> 
-            <div class="box">
-                <div class="package1">
-                <Link to="/GoldPlan" ><img src="/images/gold.png"></img></Link>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5>Silver Package </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Price $500</p>
+                        <button class="btn btn-primary">More</button>
+                        <button class="btn btn-primary">select</button> 
+                    </div>
+                    
                 </div>
-            </div> 
-            <div class="box">
-                <div class="package1">
-                <Link to="/SilverPlan" ><img src="/images/silver.png"></img></Link>
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h5>Gold Package </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Price $800</p>
+
+                        <button class="btn btn-primary">More</button>
+                        <button class="btn btn-primary">select</button> 
+                    </div>
                 </div>
-            </div>    
-        </div>   
+        </div>
+        
+           
     </div>
    )
 
