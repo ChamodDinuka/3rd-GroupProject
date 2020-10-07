@@ -96,9 +96,8 @@
   }
 
 .touristregister{
-    background-image: url("https://i.imgur.com/B9SnEac.png");
-    background-size: cover;
-  }
+  background: linear-gradient(to right, #add8e6, #00bfff);
+}
   
 .check {
   font-size: 16px;
