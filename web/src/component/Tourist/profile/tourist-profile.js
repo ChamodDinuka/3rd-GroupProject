@@ -8,36 +8,36 @@ class Tourist_profile extends Component{
         return(
             <><Navbar/>
             <div class="row">
-                <div class="column">
-                    <div class="card">
+                <div class="column-tourist">
+                    <div class="card-tourguide">
                         <img src="/images/online4.jpg"></img>
                         <h5>Check availability </h5>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="card">
+                <div class="column-tourist">
+                    <div class="card-tourist">
                         <img src="/images/profile3.jpg"></img>
                         <h5>See tour guide profiles</h5>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="card">
+                <div class="column-tourist">
+                    <div class="card-tourist">
                         <img src="/images/request2.jpg"></img>
                         <h5>Send request to tour guides</h5>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="card">
+                <div class="column-tourist">
+                    <div class="card-tourist">
                         <img src="/images/waiti2.jpg"></img>
                         <h5>Wait until confirmation of request</h5>
                     </div>
                 </div>
 
-                <div class="column">
-                    <div class="card">
+                <div class="column-tourist">
+                    <div class="card-tourist" id="">
                         <img src="/images/multiple.jpg"></img>
                         <h5>Request for multiple guides</h5>
                     </div>
@@ -59,7 +59,7 @@ class Tourist_profile extends Component{
                                 </td>
                                 <td class="float=right">
                                     <Button id="guide" variant="success">Request</Button>
-                                    <Button id="guide2" variant="success">View profile</Button>
+                                    <a href="/guide"><Button id="guide2" variant="success">View profile</Button></a>
                                 </td>
                             </tr>
                             <tr>
@@ -72,7 +72,7 @@ class Tourist_profile extends Component{
                                 </td>
                                 <td class="float=right">
                                     <Button id="guide" variant="success">Request</Button>
-                                    <Button id="guide2" variant="success">View profile</Button>
+                                    <a href="/guide"></a><Button id="guide2" variant="success">View profile</Button>
                                 </td>
                             </tr>
                             <tr>
@@ -85,7 +85,7 @@ class Tourist_profile extends Component{
                                 </td>
                                 <td class="float=right">
                                     <Button id="guide" variant="success">Request</Button>
-                                    <Button id="guide2" variant="success">View profile</Button>
+                                    <a href="/guide"><Button id="guide2" variant="success">View profile</Button></a>
                                 </td>
                             </tr>
                             <tr>
@@ -98,7 +98,7 @@ class Tourist_profile extends Component{
                                 </td>
                                 <td class="float=right">
                                     <Button id="guide" variant="success">Request</Button>
-                                    <Button id="guide2" variant="success">View profile</Button>
+                                    <a href="/guide"><Button id="guide2" variant="success">View profile</Button></a>
                                 </td>
                             </tr>
                         </tbody>
