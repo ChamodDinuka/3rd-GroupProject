@@ -115,6 +115,11 @@
     box-shadow: 0 0 0 2px #4682B4;
   }
   
+.tourguideregister{
+    background-image: url("https://wallpapercave.com/wp/wp5982355.jpg");
+    background-size: cover;
+}
+  
 .check {
   font-size: 16px;
 }
