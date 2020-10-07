@@ -45,7 +45,7 @@ const Header = (props) => {
                             Lanka will be an unforgettable memory.Iter will not dissapoint your
                              selection and will grant you excellent service within Sri Lanka.
                         </p>
-                        <button class="btn btn-primary px-5 py-2">Explore more</button>
+                        <a href="https://en.wikipedia.org/wiki/Sri_Lanka"><button class="btn btn-primary px-5 py-2">Explore more</button></a>
                     </div>
                     <div class="col-md-5 col-sm-12 h-10 w-2">
                         <img class="logo" src="/images/landing1.jpg"/>
